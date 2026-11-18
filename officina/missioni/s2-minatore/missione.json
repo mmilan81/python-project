@@ -1,0 +1,133 @@
+{
+  "tipo": "sfida",
+  "titolo": "Il minatore",
+  "concetti": "for e range, accumulatore, input, int()",
+  "enunciato": "Un minatore scava un certo numero di livelli. Al livello 1 trova 3 blocchi, al livello 2 ne trova 6, al livello 3 ne trova 9 e così via: a ogni livello ne trova 3 per il numero del livello. Esempio con 3 livelli: Livello 1: 3, Livello 2: 6, Livello 3: 9, Totale: 18.",
+  "requisiti": [
+    "Il programma chiede quanti livelli scavare.",
+    "Per ogni livello stampa una riga come: Livello 2: 6",
+    "Alla fine stampa una riga come: Totale: 18 (la somma di tutti i blocchi trovati).",
+    "Se i livelli sono 0, stampa solo il totale, che vale 0.",
+    "Extra: se il numero è negativo, stampa esattamente: Numero non valido"
+  ],
+  "passi": [
+    {
+      "nome": "Pianifica",
+      "testo": "Prima di scrivere codice, riempi il PIANO in cima al file con parole tue: cosa ti viene dato, cosa devi ottenere, quali passi servono e quali casi particolari ci sono. Puoi farlo anche su carta."
+    },
+    {
+      "nome": "Scrivi",
+      "testo": "Pensa a cosa deve ricordare il programma mentre scava livello dopo livello. Scrivi prima la parte che stampa i livelli, poi aggiungi il totale. Prova con 3 livelli: il risultato lo conosci già."
+    },
+    {
+      "nome": "Controlla",
+      "testo": "Premi «Controlla». Se manca un livello o ne compare uno in più, il problema è quasi sempre nel range: guarda dove parte e dove si ferma."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Spiega a voce a un adulto come hai ragionato, partendo dal piano. Quale passo ti ha fatto pensare di più? Cosa cambieresti ora?"
+    }
+  ],
+  "prove": [
+    {
+      "titolo": "4 livelli",
+      "input": [
+        4
+      ],
+      "righe": [
+        [
+          "livello",
+          "1",
+          "3"
+        ],
+        [
+          "livello",
+          "2",
+          "6"
+        ],
+        [
+          "livello",
+          "3",
+          "9"
+        ],
+        [
+          "livello",
+          "4",
+          "12"
+        ],
+        [
+          "totale",
+          "30"
+        ]
+      ],
+      "assenti": [
+        "livello 5"
+      ]
+    },
+    {
+      "titolo": "1 livello",
+      "input": [
+        1
+      ],
+      "righe": [
+        [
+          "livello",
+          "1",
+          "3"
+        ],
+        [
+          "totale",
+          "3"
+        ]
+      ],
+      "assenti": [
+        "livello 2"
+      ]
+    },
+    {
+      "input": [
+        10
+      ],
+      "righe": [
+        [
+          "livello",
+          "10",
+          "30"
+        ],
+        [
+          "totale",
+          "165"
+        ]
+      ],
+      "nascosta": true
+    },
+    {
+      "input": [
+        0
+      ],
+      "righe": [
+        [
+          "totale",
+          "0"
+        ]
+      ],
+      "assenti": [
+        "livello 1"
+      ],
+      "nascosta": true
+    },
+    {
+      "titolo": "-3 livelli",
+      "input": [
+        -3
+      ],
+      "righe": [
+        [
+          "numero non valido"
+        ]
+      ],
+      "extra": true
+    }
+  ],
+  "gruppo": "Sfide con Minecraft e musica"
+}

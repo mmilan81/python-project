@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dispensa di Python: le basi</title>
+<style>
+:root { color-scheme: light dark; --testo:#1d2733; --sfondo:#ffffff; --codice:#f0f3f7; --bordo:#d5dce5; --accento:#0b7a63; }
+@media (prefers-color-scheme: dark) { :root { --testo:#e4e8ee; --sfondo:#12161d; --codice:#1c232d; --bordo:#2d3744; --accento:#5fd3b8; } }
+body { margin: 0; background: var(--sfondo); color: var(--testo); font: 17px/1.6 "Atkinson Hyperlegible", system-ui, "Segoe UI", sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+h1 { font-size: 2rem; margin: 0 0 .25rem; }
+h2 { font-size: 1.4rem; margin: 2.5rem 0 .5rem; padding-top: .75rem; border-top: 2px solid var(--bordo); color: var(--accento); }
+h3 { font-size: 1.15rem; margin: 1.75rem 0 .4rem; }
+h4 { font-size: 1rem; margin: 1.25rem 0 .3rem; }
+code, pre { font-family: "JetBrains Mono", ui-monospace, Consolas, Menlo, monospace; font-size: .9em; }
+code { background: var(--codice); padding: .1em .35em; border-radius: 4px; }
+pre { background: var(--codice); border: 1px solid var(--bordo); border-radius: 6px; padding: .8rem 1rem; overflow-x: auto; line-height: 1.45; }
+pre code { background: none; padding: 0; }
+li { margin: .25rem 0; }
+@media print {
+  :root { --testo:#000; --sfondo:#fff; --codice:#f4f4f4; --bordo:#bbb; --accento:#000; }
+  body { font-size: 11pt; } main { max-width: none; padding: 0; }
+  h2 { break-after: avoid; } pre { break-inside: avoid; white-space: pre-wrap; }
+}
+</style>
+</head>
+<body><main>
+<h1>Dispensa di Python: le basi</h1>
+<p><em>Per le Missioni e le Sfide di Officina</em></p>
+<p><strong>Com’è fatto questo libro</strong></p>
+<ul>
+<li><strong>Parte 1</strong> (capitoli da 1 a 16): le basi, dalla prima riga di codice agli errori.</li>
+<li><strong>Approfondimento</strong>: variabili e condizioni, per le Missioni 4, 5 e 6.</li>
+<li><strong>Parte 2</strong> (capitoli da 17 a 23): <code>while</code>, liste, dizionari e funzioni, per le Missioni 7, 8 e 9.</li>
+<li><strong>Parte 3</strong>: come ragionare per scrivere un programma da solo, per le Sfide.</li>
+<li><strong>Parte 4</strong>: esempi pratici, un programma per ogni argomento.</li>
+<li><strong>Parte 5</strong>: tre piccoli progetti completi che mettono insieme tutto.</li>
+</ul>
+<p>Per imparare davvero, riscrivi a mano gli esempi, eseguili e poi cambiali per vedere cosa succede. Copiare non basta: sono le dita che imparano.</p>
+<p>Questa dispensa non va studiata a memoria. Tienila aperta mentre lavori alle missioni e consultala quando un concetto non ti è chiaro. La prima volta che usi una cosa ti sembrerà strana, la quinta ti verrà naturale. Prova sempre gli esempi in Officina: cambiare un numero e vedere cosa succede insegna più di qualsiasi spiegazione.</p>
+<h2>1. print: far parlare il programma</h2>
+<p><code>print</code> scrive qualcosa sullo schermo.</p>
+<pre><code class="language-python">print(&quot;Ciao, Steve!&quot;)
+print(&quot;Vita:&quot;, 20)
+</code></pre>
+<p>Sullo schermo compare:</p>
+<pre><code>Ciao, Steve!
+Vita: 20
+</code></pre>
+<ul>
+<li>Il testo va tra virgolette, doppie o singole, purché uguali all’inizio e alla fine.</li>
+<li>Le virgolette non compaiono sullo schermo: servono a Python per capire dove il testo inizia e dove finisce.</li>
+<li>Se separi più cose con la virgola, Python le scrive una accanto all’altra con uno spazio in mezzo.</li>
+</ul>
+<h2>2. Commenti</h2>
+<p>Tutto quello che scrivi dopo un <code>#</code> viene ignorato da Python. Serve a spiegare il codice a chi lo legge, cioè a te tra una settimana.</p>
+<pre><code class="language-python">vita = 20   # i punti vita iniziali
+</code></pre>
+<h2>3. Variabili: scatole con un nome</h2>
+<p>Una variabile è una scatola con un’etichetta: dentro ci metti un valore e lo ritrovi usando il nome.</p>
+<pre><code class="language-python">nome = &quot;Steve&quot;
+vita = 20
+vita = 18       # la scatola ora contiene 18
+print(nome, vita)
+</code></pre>
+<ul>
+<li>Il simbolo <code>=</code> non significa «uguale», significa «metti dentro»: a sinistra il nome della scatola, a destra il valore.</li>
+<li>Un nome può contenere lettere, numeri e il trattino basso <code>_</code>. Non può iniziare con un numero né contenere spazi.</li>
+<li>Maiuscole e minuscole contano: <code>Vita</code> e <code>vita</code> sono due variabili diverse.</li>
+<li>Scegli nomi che spiegano cosa c’è dentro: <code>blocchi_di_terra</code> è meglio di <code>x</code>.</li>
+<li>Una variabile va creata prima di usarla, altrimenti Python risponde con un <code>NameError</code>.</li>
+<li><code>print(nome)</code> scrive il contenuto della variabile, <code>print("nome")</code> scrive la parola nome.</li>
+</ul>
+<h2>4. I tipi di dati</h2>
+<p>Ogni valore ha un tipo, e il tipo decide cosa ci puoi fare.</p>
+<ul>
+<li><code>str</code> (stringa): testo, sempre tra virgolette. Esempi: <code>"Steve"</code>, <code>"200"</code>.</li>
+<li><code>int</code>: numero intero. Esempi: <code>20</code>, <code>-3</code>.</li>
+<li><code>float</code>: numero decimale, scritto con il punto e non con la virgola. Esempio: <code>3.5</code>.</li>
+<li><code>bool</code>: vero o falso, cioè <code>True</code> o <code>False</code>, con la maiuscola e senza virgolette.</li>
+</ul>
+<p>Con <code>type()</code> puoi chiedere a Python di che tipo è un valore: <code>print(type(20))</code> scrive <code>&lt;class 'int'&gt;</code>.</p>
+<p>Attenzione: <code>"200"</code> (testo) e <code>200</code> (numero) sono cose diverse. <code>"200" + "1"</code> dà <code>2001</code>, perché il testo si incolla. <code>200 + 1</code> dà <code>201</code>, perché i numeri si sommano.</p>
+<h2>5. input: fare una domanda</h2>
+<pre><code class="language-python">nome = input(&quot;Come ti chiami? &quot;)
+</code></pre>
+<p><code>input</code> ferma il programma, mostra la domanda, aspetta che scrivi e premi Invio, poi mette quello che hai scritto nella variabile.</p>
+<p><strong>Regola d’oro: <code>input</code> restituisce sempre testo</strong>, anche se scrivi <code>200</code>. Per questo i calcoli sui numeri chiesti all’utente non funzionano senza una conversione.</p>
+<h2>6. Convertire i tipi: int(), float(), str()</h2>
+<pre><code class="language-python">blocchi = int(input(&quot;Quanti blocchi hai? &quot;))
+</code></pre>
+<p>Si legge dall’interno verso l’esterno: prima <code>input</code> raccoglie il testo, poi <code>int</code> lo trasforma in numero intero.</p>
+<ul>
+<li><code>int("200")</code> dà <code>200</code>, <code>float("3.5")</code> dà <code>3.5</code>, <code>str(200)</code> dà <code>"200"</code>.</li>
+<li>Se il testo non assomiglia a un numero, per esempio <code>int("tanti")</code>, Python si ferma con un <code>ValueError</code>.</li>
+<li>Un decimale scritto con la virgola, come <code>"3,5"</code>, non viene capito: in Python si usa il punto.</li>
+</ul>
+<h2>7. Calcoli</h2>
+<ul>
+<li><code>+</code> somma, <code>-</code> sottrae, <code>*</code> moltiplica</li>
+<li><code>/</code> divide e dà sempre un decimale (<code>7 / 2</code> dà <code>3.5</code>, <code>8 / 2</code> dà <code>4.0</code>)</li>
+<li><code>//</code> divisione intera: quante volte ci sta, senza resto</li>
+<li><code>%</code> resto della divisione</li>
+<li><code>**</code> potenza (<code>2 ** 3</code> dà <code>8</code>)</li>
+</ul>
+<p>Esempio con gli stack di Minecraft:</p>
+<pre><code class="language-python">blocchi = 200
+stack = blocchi // 64     # 3 stack pieni
+avanzo = blocchi % 64     # 8 blocchi che avanzano
+</code></pre>
+<p>Python rispetta l’ordine della matematica: <code>*</code> e <code>/</code> prima di <code>+</code> e <code>-</code>. Con le parentesi decidi tu: <code>(2 + 3) * 4</code> dà <code>20</code>.</p>
+<p>Con i testi, <code>+</code> li incolla (<code>"Ciao " + "Steve"</code>) e <code>*</code> li ripete (<code>"ab" * 3</code> dà <code>ababab</code>). Ma non puoi sommare un testo e un numero: <code>"Ho " + 5</code> provoca un <code>TypeError</code>.</p>
+<h2>8. f-string: testo con le variabili dentro</h2>
+<pre><code class="language-python">nome = &quot;Steve&quot;
+stack = 3
+print(f&quot;{nome} riempie {stack} stack&quot;)
+</code></pre>
+<p>Sullo schermo: <code>Steve riempie 3 stack</code>. Metti una <code>f</code> davanti alle virgolette e scrivi le variabili tra parentesi graffe. È più comoda del <code>+</code> perché trasforma i numeri in testo da sola. Sulla tastiera italiana di Windows le graffe si scrivono con AltGr + Maiusc + è (apre) e AltGr + Maiusc + + (chiude).</p>
+<h2>9. Confronti</h2>
+<p>Un confronto dà come risultato <code>True</code> o <code>False</code>.</p>
+<ul>
+<li><code>==</code> uguale</li>
+<li><code>!=</code> diverso</li>
+<li><code>&lt;</code> minore, <code>&gt;</code> maggiore</li>
+<li><code>&lt;=</code> minore o uguale, <code>&gt;=</code> maggiore o uguale</li>
+</ul>
+<pre><code class="language-python">print(5 &gt; 3)     # True
+print(5 == 3)    # False
+</code></pre>
+<p><strong>Il classico errore:</strong> <code>=</code> assegna un valore a una variabile, <code>==</code> confronta due valori. Dentro un <code>if</code> serve sempre <code>==</code>.</p>
+<h2>10. if, elif, else: far scegliere il programma</h2>
+<pre><code class="language-python">if scavo == profondita:
+    print(&quot;DIAMANTE!&quot;)
+elif scavo &lt; profondita:
+    print(&quot;Solo terra... scava più in giù&quot;)
+else:
+    print(&quot;Troppo profondo, attento alla lava!&quot;)
+</code></pre>
+<p>Python legge dall’alto: esegue il primo blocco la cui condizione è vera e salta tutti gli altri. <code>else</code> non ha condizione: scatta quando nessuna delle precedenti era vera. <code>elif</code> ed <code>else</code> sono facoltativi, e puoi mettere più <code>elif</code>.</p>
+<p>Due regole che non si possono dimenticare:</p>
+<ul>
+<li><strong>I due punti</strong> <code>:</code> alla fine delle righe <code>if</code>, <code>elif</code> ed <code>else</code> (e anche di <code>for</code>, <code>while</code>, <code>def</code>).</li>
+<li><strong>Il rientro</strong>: le righe che appartengono al blocco vanno spostate a destra di 4 spazi (nell’editor basta premere Tab), tutte con lo stesso rientro. In Python il rientro fa parte della sintassi: dice cosa sta «dentro» e cosa no.</li>
+</ul>
+<p>Puoi combinare più condizioni con <code>and</code> (tutte vere), <code>or</code> (almeno una vera) e <code>not</code> (il contrario):</p>
+<pre><code class="language-python">if vita &gt; 0 and fame &gt; 0:
+    print(&quot;Sei vivo e non hai fame&quot;)
+</code></pre>
+<h2>11. import e random</h2>
+<p>Un modulo è una raccolta di strumenti già pronti, scritti da altri. Per usarlo lo si importa all’inizio del programma.</p>
+<pre><code class="language-python">import random
+
+numero = random.randint(1, 10)
+</code></pre>
+<p><code>random.randint(1, 10)</code> sceglie un numero intero a caso tra 1 e 10, con gli estremi inclusi. A ogni esecuzione può uscire un numero diverso. Si scrive <code>modulo.strumento</code>: prima il nome del modulo, poi il punto, poi quello che vuoi usare.</p>
+<p>Per sapere cosa contiene un modulo si legge la documentazione ufficiale (docs.python.org/it/3/). Saperla leggere è la vera abilità da programmatore: nessuno conosce tutto a memoria.</p>
+<h2>12. for e range: ripetere</h2>
+<p>Un ciclo <code>for</code> ripete un blocco di righe, una volta per ogni valore di una serie.</p>
+<pre><code class="language-python">for i in range(3):
+    print(&quot;Tic&quot;)
+</code></pre>
+<p>Scrive <code>Tic</code> tre volte. <code>range</code> produce la serie di numeri:</p>
+<ul>
+<li><code>range(5)</code> dà 0, 1, 2, 3, 4 (parte da 0 e si ferma prima di 5)</li>
+<li><code>range(1, 4)</code> dà 1, 2, 3</li>
+<li><code>range(200, 1000, 100)</code> dà 200, 300, 400, …, 900 (inizio, fine, passo)</li>
+</ul>
+<p>Il numero di fine <strong>non</strong> viene mai incluso. La variabile dopo <code>for</code> assume a ogni giro il valore successivo, quindi la puoi usare dentro il blocco:</p>
+<pre><code class="language-python">for frequenza in range(200, 1000, 100):
+    winsound.Beep(frequenza, 150)
+</code></pre>
+<h2>13. winsound: suonare</h2>
+<pre><code class="language-python">import winsound
+
+winsound.Beep(440, 500)
+</code></pre>
+<p><code>Beep(frequenza, durata)</code>: la frequenza è in hertz e deve stare tra 37 e 32767, la durata è in millisecondi (1000 sono un secondo). Più la frequenza è alta, più il suono è acuto. Il programma aspetta che la nota finisca prima di passare alla riga dopo. Alcune frequenze utili: 262 Do, 294 Re, 330 Mi, 349 Fa, 440 La. Il modulo esiste solo su Windows.</p>
+<h2>14. Gli errori: cosa ti stanno dicendo</h2>
+<p>Un errore non è una bocciatura: è Python che ti dice dove guardare. Gli errori più comuni:</p>
+<ul>
+<li><code>SyntaxError</code>: qualcosa è scritto male (due punti mancanti, parentesi o virgolette non chiuse).</li>
+<li><code>IndentationError</code>: il rientro è sbagliato.</li>
+<li><code>NameError</code>: hai usato un nome che Python non conosce (errore di battitura, o variabile non ancora creata).</li>
+<li><code>TypeError</code>: stai combinando tipi che non vanno insieme, come testo e numero.</li>
+<li><code>ValueError</code>: il tipo è giusto ma il valore no, per esempio <code>int("tanti")</code> o <code>Beep(0, 150)</code>.</li>
+<li><code>ZeroDivisionError</code>: hai diviso per zero.</li>
+</ul>
+<p>Come si legge un errore:</p>
+<ol>
+<li>Leggi l’<strong>ultima riga</strong>: dice che cosa non va.</li>
+<li>Guarda il <strong>numero di riga</strong> indicato e vai a vedere quella riga.</li>
+<li>Se la riga sembra giusta, controlla anche quella <strong>sopra</strong>: spesso l’errore nasce lì.</li>
+<li>Cambia <strong>una cosa sola</strong> e riprova. Se cambi tre cose insieme non capisci più quale ha funzionato.</li>
+</ol>
+<p>Nelle missioni il riquadro «Cosa è successo» ti dà una mano in italiano, ma impara a leggere anche l’errore originale in rosso: sul lavoro vedrai solo quello.</p>
+<h2>15. Piccolo glossario</h2>
+<ul>
+<li><strong>Istruzione</strong>: una riga di codice che dice a Python di fare qualcosa.</li>
+<li><strong>Variabile</strong>: un nome che contiene un valore.</li>
+<li><strong>Tipo</strong>: la categoria di un valore (testo, intero, decimale, vero/falso).</li>
+<li><strong>Condizione</strong>: qualcosa che è vero o falso, usato da <code>if</code>.</li>
+<li><strong>Ciclo</strong>: un blocco che si ripete.</li>
+<li><strong>Modulo</strong>: una raccolta di strumenti da importare.</li>
+<li><strong>Bug</strong>: un errore nel programma. <strong>Debug</strong>: il lavoro di cercarlo e correggerlo.</li>
+</ul>
+<h2>16. Domande per controllare</h2>
+<p>Prima rispondi a voce o su carta, poi verifica in Officina. Per la domanda 1 usa questo codice:</p>
+<pre><code class="language-python">x = 7
+print(x // 2, x % 2)
+</code></pre>
+<ol>
+<li>Cosa stampa il codice qui sopra?</li>
+<li>Perché <code>"5" + 3</code> provoca un errore?</li>
+<li>Qual è la differenza tra <code>=</code> e <code>==</code>?</li>
+<li>Quali numeri produce <code>range(10, 40, 10)</code>?</li>
+<li>Cosa stampa <code>print(f"{2 + 3} diamanti")</code>?</li>
+<li>Perché <code>input</code> e <code>int</code> si usano spesso insieme?</li>
+</ol>
+<h3>Soluzioni (per chi fa da copilota)</h3>
+<ol>
+<li><code>3 1</code>: 7 diviso 2 fa 3 con resto 1.</li>
+<li>Si cerca di sommare un testo e un numero, e Python non li mescola da solo. Si corregge con <code>"5" + str(3)</code> oppure con <code>int("5") + 3</code>.</li>
+<li><code>=</code> mette un valore in una variabile, <code>==</code> confronta due valori e dà <code>True</code> o <code>False</code>.</li>
+<li>10, 20, 30. Il 40 non è incluso.</li>
+<li><code>5 diamanti</code>: l’espressione tra graffe viene calcolata prima.</li>
+<li>Perché <code>input</code> dà sempre testo, e <code>int</code> lo trasforma in un numero su cui si può calcolare.</li>
+</ol>
+<h2>Approfondimento: variabili e condizioni</h2>
+<p>Queste pagine accompagnano le Missioni 4, 5 e 6. Non ci sono concetti nuovi: sono strumenti per usare meglio quelli che già conosci.</p>
+<h3>and, or, not: come ragiona Python</h3>
+<ul>
+<li><code>and</code> è vera solo se <strong>tutte</strong> le condizioni sono vere.</li>
+<li><code>or</code> è vera se <strong>almeno una</strong> è vera.</li>
+<li><code>not</code> rovescia il risultato.</li>
+</ul>
+<pre><code class="language-python">ferro = 4
+bastoni = 0
+
+print(ferro &gt;= 3 and bastoni &gt;= 2)   # False
+print(ferro &gt;= 3 or bastoni &gt;= 2)    # True
+print(not ferro &gt;= 3)                # False
+</code></pre>
+<p>Leggi la condizione ad alta voce: «ferro almeno 3 <strong>e</strong> bastoni almeno 2». Se la frase non ha senso per il gioco, la condizione è sbagliata. Due avvertimenti:</p>
+<ul>
+<li>Due condizioni identiche una dopo l’altra sono un campanello d’allarme: la seconda non può scattare mai.</li>
+<li>Ai due lati di <code>and</code> e <code>or</code> serve una condizione completa. Si scrive <code>nota == "do" or nota == "re"</code>, non <code>nota == "do" or "re"</code>.</li>
+</ul>
+<h3>L’ordine in una catena di elif conta</h3>
+<p>Python si ferma al <strong>primo</strong> ramo vero e salta tutti gli altri. Quindi si va dal caso più stretto al più largo:</p>
+<pre><code class="language-python">vita = 3
+
+if vita &lt;= 5:
+    print(&quot;Pericolo!&quot;)
+elif vita &lt;= 12:
+    print(&quot;Così così&quot;)
+else:
+    print(&quot;Benissimo&quot;)
+</code></pre>
+<p>Stampa <code>Pericolo!</code>. Se scambi i primi due rami, con <code>vita = 3</code> stampa invece «Così così», perché <code>3 &lt;= 12</code> è già vero e il ramo più stretto non scatta mai. Non c’è nessun errore: il programma gira e dà un risultato sbagliato.</p>
+<h3>if dentro if</h3>
+<p>Un blocco può contenere un altro <code>if</code>, con quattro spazi di rientro in più:</p>
+<pre><code class="language-python">if cibo == &quot;si&quot;:
+    fame = fame + 6
+    if fame &gt; 20:
+        fame = 20
+</code></pre>
+<p>Il secondo <code>if</code> viene controllato solo se il primo è vero. Così si mette un limite a un valore: prima lo cambi, poi controlli che non l’abbia superato. Esistono anche due scorciatoie: <code>min(a, b)</code> dà il valore più piccolo e <code>max(a, b)</code> il più grande. Quindi <code>max(vita, 0)</code> impedisce alla vita di scendere sotto 0, e <code>min(fame, 20)</code> di superare 20.</p>
+<h3>Confrontare i testi</h3>
+<p><code>==</code> funziona anche con i testi, ma devono combaciare <strong>esattamente</strong>: <code>"Si"</code> e <code>"si"</code> sono diversi, e anche <code>"si "</code> con uno spazio in fondo. Per ignorare maiuscole e minuscole si trasforma la risposta in minuscolo con <code>.lower()</code>:</p>
+<pre><code class="language-python">risposta = input(&quot;Mangi qualcosa? (si/no): &quot;).lower()
+</code></pre>
+<p>Si legge da sinistra a destra: prima <code>input</code> raccoglie il testo, poi <code>.lower()</code> lo rende minuscolo. Se l’utente scrive <code>SI</code> o <code>Si</code>, <code>risposta</code> contiene <code>si</code>.</p>
+<p>L’<code>else</code> alla fine di una catena è la tua rete di sicurezza: cattura tutto quello che non avevi previsto. Senza <code>else</code>, un valore imprevisto può lasciare una variabile mai creata, e Python risponde con un <code>NameError</code>.</p>
+<h3>Una variabile assegnata in rami diversi</h3>
+<pre><code class="language-python">if nota == &quot;do&quot;:
+    frequenza = 262
+elif nota == &quot;re&quot;:
+    frequenza = 294
+else:
+    frequenza = 0
+</code></pre>
+<p>Ogni ramo assegna la stessa variabile, che dopo la catena si può usare. La regola: dopo una catena di <code>if</code> e <code>elif</code>, la variabile deve avere un valore <strong>in ogni caso</strong>. Se un ramo manca, o manca l’<code>else</code>, la variabile può non esistere.</p>
+<h3>Divisione: / o //?</h3>
+<p><code>/</code> dà sempre un decimale (<code>440 / 2</code> dà <code>220.0</code>), <code>//</code> dà un intero (<code>440 // 2</code> dà <code>220</code>). Alcune funzioni, come <code>winsound.Beep</code>, vogliono un numero intero: se ricevono <code>220.0</code> si fermano con un <code>TypeError</code>. Per tornare a un intero si usa <code>//</code> oppure <code>int(220.0)</code>.</p>
+<h3>Come provare un programma con condizioni</h3>
+<ul>
+<li>Un caso per <strong>ogni ramo</strong>.</li>
+<li>I casi sul <strong>confine</strong>: se la soglia è 5, prova 5 e 6.</li>
+<li>Un valore <strong>strano</strong>: 0, un numero negativo, una parola che non ti aspetti.</li>
+</ul>
+<p>Scrivi prima cosa ti aspetti: è il passo «prevedi» delle missioni. Ogni differenza tra la previsione e il risultato è un bug trovato.</p>
+<h3>Domande per controllare (Missioni 4, 5 e 6)</h3>
+<p>Tre piccoli programmi, D, E e F.</p>
+<p>Programma D:</p>
+<pre><code class="language-python">x = 10
+if x &gt; 5:
+    print(&quot;A&quot;)
+elif x &gt; 8:
+    print(&quot;B&quot;)
+else:
+    print(&quot;C&quot;)
+</code></pre>
+<p>Programma E:</p>
+<pre><code class="language-python">a = 4
+b = 0
+if a &gt; 3 and b &gt; 0:
+    print(&quot;1&quot;)
+elif a &gt; 3 or b &gt; 0:
+    print(&quot;2&quot;)
+else:
+    print(&quot;3&quot;)
+</code></pre>
+<p>Programma F:</p>
+<pre><code class="language-python">vita = 20 - 25
+vita = max(vita, 0)
+print(vita)
+</code></pre>
+<ol>
+<li>Cosa stampa il programma D? Esiste un valore di <code>x</code> che faccia stampare B?</li>
+<li>Cosa stampa il programma E?</li>
+<li>Cosa stampa il programma F?</li>
+<li>Perché <code>if nota == "do" or "re":</code> non fa quello che sembra?</li>
+<li>Quanto fanno <code>440 / 2</code> e <code>440 // 2</code>? Perché la differenza conta con <code>winsound.Beep</code>?</li>
+<li>Come fai ad accettare «SI», «Si» e «si» con un solo confronto?</li>
+</ol>
+<h4>Soluzioni (per chi fa da copilota)</h4>
+<ol>
+<li>Stampa <code>A</code>. No, nessun valore: ogni <code>x</code> maggiore di 8 è anche maggiore di 5, quindi il ramo B non scatta mai. Andrebbe messo prima.</li>
+<li>Stampa <code>2</code>: <code>a &gt; 3</code> è vera ma <code>b &gt; 0</code> è falsa, quindi <code>and</code> non basta, mentre <code>or</code> sì.</li>
+<li>Stampa <code>0</code>: la vita vale <code>-5</code>, e <code>max(-5, 0)</code> dà 0.</li>
+<li>Perché <code>"re"</code> da solo è un testo non vuoto, e Python lo considera sempre vero: la condizione risulta vera qualunque sia la nota. Si scrive <code>nota == "do" or nota == "re"</code>.</li>
+<li><code>220.0</code> e <code>220</code>. <code>Beep</code> vuole un numero intero, quindi con <code>220.0</code> si ferma con un <code>TypeError</code>.</li>
+<li>Con <code>.lower()</code> sulla risposta: <code>risposta = input(...).lower()</code>, e poi si confronta con <code>"si"</code>.</li>
+</ol>
+<h2>Parte 2: ripetere, raccogliere, riutilizzare</h2>
+<p>Queste pagine accompagnano le Missioni 7, 8 e 9. Come prima: tienile aperte mentre lavori e consultale quando serve.</p>
+<h2>17. while: ripetere finché una condizione è vera</h2>
+<p>Il <code>for</code> ripete un numero di volte che conosci già. Il <code>while</code> ripete <strong>finché</strong> una condizione resta vera, e non sai in anticipo quanti giri serviranno.</p>
+<pre><code class="language-python">vita = 20
+while vita &gt; 0:
+    print(&quot;Il creeper ti colpisce! Vita:&quot;, vita)
+    vita = vita - 5
+print(&quot;Game over&quot;)
+</code></pre>
+<p>Sullo schermo:</p>
+<pre><code>Il creeper ti colpisce! Vita: 20
+Il creeper ti colpisce! Vita: 15
+Il creeper ti colpisce! Vita: 10
+Il creeper ti colpisce! Vita: 5
+Game over
+</code></pre>
+<ul>
+<li>Prima di ogni giro Python controlla la condizione: se è vera esegue il blocco, se è falsa salta alla riga dopo il ciclo.</li>
+<li>La riga del <code>while</code> finisce con i due punti e il blocco ha il rientro, come per <code>if</code>.</li>
+<li><strong>Qualcosa dentro il ciclo deve far cambiare la condizione.</strong> Qui <code>vita</code> scende a ogni giro. Se niente cambia, la condizione resta vera per sempre e il ciclo non finisce mai: è un ciclo infinito.</li>
+<li>Se il programma non si ferma, premi <strong>Stop</strong> in Officina (nel terminale di VS Code si usa Ctrl+C). Non è un danno: capita a tutti i programmatori.</li>
+<li>Per contare i giri si usa un contatore: <code>tentativi = tentativi + 1</code>, che si può abbreviare in <code>tentativi += 1</code>. La variabile va creata prima del ciclo (<code>tentativi = 0</code>), altrimenti arriva un <code>NameError</code>.</li>
+<li>Si possono combinare condizioni con <code>and</code>: <code>while scavo != profondita and tentativi &lt; 7:</code> continua solo se il diamante non è stato trovato <strong>e</strong> hai ancora tentativi.</li>
+<li><code>break</code> esce subito dal ciclo, qualunque sia la condizione:</li>
+</ul>
+<pre><code class="language-python">while True:
+    risposta = input(&quot;Scrivi esci per uscire: &quot;)
+    if risposta == &quot;esci&quot;:
+        break
+</code></pre>
+<p><code>while True</code> significa «sempre vero»: l’unico modo per uscirne è <code>break</code>.</p>
+<ul>
+<li>Come scegliere: <code>for</code> quando sai quante volte ripetere o hai una serie di valori; <code>while</code> quando la ripetizione dipende da una condizione.</li>
+</ul>
+<h2>18. Liste: più valori in una sola variabile</h2>
+<pre><code class="language-python">zaino = [&quot;spada&quot;, &quot;pala&quot;, &quot;torcia&quot;]
+print(zaino[0])        # spada
+print(zaino[-1])       # torcia
+zaino.append(&quot;pane&quot;)   # aggiunge in fondo
+zaino.remove(&quot;pala&quot;)   # toglie questo elemento
+print(len(zaino))      # 3
+</code></pre>
+<ul>
+<li>Una lista si scrive tra parentesi quadre, con gli elementi separati da virgole. Sulla tastiera italiana di Windows le quadre si scrivono con AltGr + è e AltGr + +.</li>
+<li>Ogni elemento ha una <strong>posizione</strong> (indice) che parte da <strong>0</strong>: il primo è <code>zaino[0]</code>, il secondo <code>zaino[1]</code>. Con <code>-1</code> si prende l’ultimo.</li>
+<li>Se chiedi una posizione che non esiste, Python risponde con un <code>IndexError</code>. Una lista di 3 elementi ha le posizioni 0, 1, 2.</li>
+<li><code>len(lista)</code> dice quanti elementi ci sono, <code>append</code> aggiunge in fondo, <code>remove</code> toglie un elemento (se non c’è, arriva un <code>ValueError</code>).</li>
+<li><code>"spada" in zaino</code> dà <code>True</code> o <code>False</code>: serve per controllare prima di agire.</li>
+<li>Per cambiare un elemento si assegna alla sua posizione: <code>zaino[1] = "arco"</code>.</li>
+<li>Con <code>for</code> si scorre tutta la lista, un elemento per giro:</li>
+</ul>
+<pre><code class="language-python">for oggetto in zaino:
+    print(&quot;-&quot;, oggetto)
+</code></pre>
+<ul>
+<li>Una lista può contenere numeri: <code>[262, 294, 330]</code> è una serie di note, e un <code>for</code> può suonarle una per una.</li>
+</ul>
+<h2>19. Dizionari: valori con un nome</h2>
+<pre><code class="language-python">risorse = {&quot;legno&quot;: 64, &quot;ferro&quot;: 12, &quot;diamanti&quot;: 3}
+print(risorse[&quot;ferro&quot;])       # 12
+risorse[&quot;diamanti&quot;] = 5       # cambia un valore
+risorse[&quot;oro&quot;] = 7            # aggiunge una voce nuova
+</code></pre>
+<ul>
+<li>Un dizionario si scrive tra parentesi graffe, con coppie <code>chiave: valore</code>. Le chiavi sono i nomi con cui cerchi (qui <code>"legno"</code>), i valori sono quello che ci trovi.</li>
+<li>Si cerca con le quadre e la chiave, non con la posizione: <code>risorse["ferro"]</code>.</li>
+<li>Se la chiave non esiste, Python risponde con un <code>KeyError</code>. Per cercare senza rischi si usa <code>risorse.get("oro", 0)</code>, che dà il valore oppure <code>0</code> se la chiave manca.</li>
+<li><code>"ferro" in risorse</code> controlla se la chiave esiste.</li>
+<li>Ogni chiave compare una volta sola: assegnarla di nuovo cambia il valore.</li>
+<li>Con <code>for</code> si scorrono le chiavi:</li>
+</ul>
+<pre><code class="language-python">for nome in risorse:
+    print(nome, &quot;:&quot;, risorse[nome])
+</code></pre>
+<ul>
+<li><strong>Lista o dizionario?</strong> Lista quando conta l’ordine o la posizione (le note di una melodia, gli oggetti dello zaino). Dizionario quando vuoi trovare un valore dal suo nome (quanti diamanti ho, quanta vita ha il personaggio).</li>
+</ul>
+<h2>20. Funzioni: dare un nome a un pezzo di programma</h2>
+<pre><code class="language-python">def saluta(nome):
+    print(&quot;Ciao&quot;, nome)
+
+saluta(&quot;Steve&quot;)
+saluta(&quot;Alex&quot;)
+</code></pre>
+<p>Scrive due saluti. <code>def</code> <strong>definisce</strong> la funzione ma non la esegue: il codice parte solo quando la <strong>chiami</strong>, scrivendo il nome seguito dalle parentesi.</p>
+<ul>
+<li>La riga <code>def</code> finisce con i due punti e il corpo ha il rientro, come per <code>if</code> e <code>for</code>.</li>
+<li>I <strong>parametri</strong> sono i nomi tra parentesi nella definizione (<code>nome</code>), gli <strong>argomenti</strong> sono i valori che passi quando chiami (<code>"Steve"</code>). Se ne dai di meno o di più di quelli richiesti, arriva un <code>TypeError</code>.</li>
+<li><strong><code>return</code></strong> restituisce un risultato a chi ha chiamato la funzione:</li>
+</ul>
+<pre><code class="language-python">def stack_pieni(blocchi):
+    return blocchi // 64
+
+stack = stack_pieni(200)
+print(stack)    # 3
+</code></pre>
+<ul>
+<li><strong><code>print</code> e <code>return</code> non sono la stessa cosa.</strong> <code>print</code> scrive sullo schermo, ma il valore poi è perso. <code>return</code> lo consegna, e puoi usarlo dopo, in un calcolo o in una variabile. Una funzione senza <code>return</code> restituisce <code>None</code> («niente»): è il bug silenzioso più frequente.</li>
+<li>Una funzione deve essere definita <strong>prima</strong> di essere chiamata: se la chiami più in alto nel file, arriva un <code>NameError</code>.</li>
+<li>Le variabili create dentro una funzione esistono solo lì dentro.</li>
+<li>Una funzione può chiamarne un’altra e può ricevere una lista:</li>
+</ul>
+<pre><code class="language-python">def melodia(note, durata):
+    for frequenza in note:
+        suona(frequenza, durata)
+</code></pre>
+<ul>
+<li>Si scrivono funzioni per non copiare lo stesso codice, per dare nomi chiari alle cose e per provare un pezzo alla volta. Se ti accorgi di aver incollato lo stesso gruppo di righe due volte, è il momento di scrivere una funzione.</li>
+</ul>
+<h2>21. Nuovi errori e come riconoscerli</h2>
+<ul>
+<li><code>IndexError</code>: hai chiesto una posizione che non esiste in una lista. Ricorda che si parte da 0.</li>
+<li><code>KeyError</code>: hai cercato in un dizionario una chiave che non c’è.</li>
+<li><strong>Ciclo infinito</strong>: il programma non finisce e continua a scrivere. Premi Stop, poi controlla che dentro il <code>while</code> qualcosa cambi la condizione.</li>
+<li><code>NameError</code> con una funzione: o hai sbagliato il nome, o l’hai chiamata prima di definirla.</li>
+<li><code>TypeError</code> con «missing required argument»: hai chiamato una funzione senza tutti i valori che chiede.</li>
+<li><code>None</code> nell’output: la funzione non ha il <code>return</code>.</li>
+<li><strong>Errori silenziosi</strong>: a volte il programma gira senza errori ma il risultato è sbagliato, come prendere <code>zaino[1]</code> credendo che sia il primo oggetto. Per trovarli, stampa i valori con <code>print</code> nei punti sospetti e confrontali con quello che ti aspettavi.</li>
+</ul>
+<h2>22. Altre parole utili</h2>
+<ul>
+<li><strong>Contatore</strong>: variabile che aumenta a ogni giro. <strong>Ciclo infinito</strong>: ciclo che non si ferma mai.</li>
+<li><strong>Lista</strong> e <strong>indice</strong>: un elenco ordinato di valori, e la posizione di un elemento (si parte da 0).</li>
+<li><strong>Dizionario</strong> e <strong>chiave</strong>: una raccolta di coppie nome-valore, e il nome con cui si cerca.</li>
+<li><strong>Funzione</strong>: un pezzo di programma con un nome. <strong>Parametro</strong>: il nome che riceve il valore. <strong>Argomento</strong>: il valore che passi. <strong>Valore di ritorno</strong>: ciò che restituisce <code>return</code>.</li>
+</ul>
+<h2>23. Domande per controllare (parte 2)</h2>
+<p>Ecco tre piccoli programmi, che chiamiamo A, B e C.</p>
+<p>Programma A:</p>
+<pre><code class="language-python">n = 3
+while n &gt; 0:
+    print(n)
+    n = n - 1
+</code></pre>
+<p>Programma B:</p>
+<pre><code class="language-python">n = 3
+while n &gt; 0:
+    print(n)
+</code></pre>
+<p>Programma C:</p>
+<pre><code class="language-python">def doppio(x):
+    return x * 2
+
+print(doppio(4) + 1)
+</code></pre>
+<ol>
+<li>Cosa stampa il programma A?</li>
+<li>Perché il programma B non finisce mai? Come lo correggi?</li>
+<li>Cosa stampa il programma C?</li>
+<li>Data <code>lettere = ["a", "b", "c"]</code>, cosa fa <code>print(lettere[1])</code>? E <code>print(lettere[3])</code>?</li>
+<li>Dato <code>d = {"vita": 20}</code>, come porti la vita a 15? Cosa succede con <code>d["fame"]</code>?</li>
+<li>Qual è la differenza tra <code>print</code> e <code>return</code> dentro una funzione?</li>
+</ol>
+<h3>Soluzioni (per chi fa da copilota)</h3>
+<ol>
+<li>Stampa 3, 2 e 1, uno per riga.</li>
+<li>Dentro il ciclo <code>n</code> non cambia mai, quindi <code>n &gt; 0</code> resta sempre vera. Manca la riga <code>n = n - 1</code>.</li>
+<li>Stampa <code>9</code>: <code>doppio(4)</code> dà 8, più 1.</li>
+<li><code>print(lettere[1])</code> stampa <code>b</code>, perché le posizioni partono da 0. <code>lettere[3]</code> dà un <code>IndexError</code>, perché le posizioni esistenti sono 0, 1 e 2.</li>
+<li>Con <code>d["vita"] = 15</code>. <code>d["fame"]</code> dà un <code>KeyError</code> perché la chiave non esiste (con <code>d.get("fame", 0)</code> darebbe invece 0).</li>
+<li><code>print</code> scrive sullo schermo e il valore si perde, <code>return</code> restituisce il valore a chi ha chiamato la funzione, che lo può usare in un calcolo o salvare in una variabile.</li>
+</ol>
+<h2>Parte 3: scrivere un programma da solo</h2>
+<p>Nelle Sfide nessuno ti dà il codice: lo costruisci tu. Il segreto non è scrivere in fretta, è pensare prima. Il PIANO in cima al file segue quattro domande.</p>
+<h3>Il piano in quattro domande</h3>
+<ol>
+<li><strong>Cosa mi viene dato?</strong> I dati di partenza: numeri chiesti con <code>input</code>, una lista ricevuta da una funzione, e così via.</li>
+<li><strong>Cosa devo ottenere?</strong> Il risultato: cosa stampare, oppure cosa restituire con <code>return</code>.</li>
+<li><strong>Quali passi servono, in ordine?</strong> Scrivili in italiano, come una ricetta, prima di scrivere codice.</li>
+<li><strong>Quali casi particolari ci sono?</strong> Cosa succede con zero, con un numero negativo, con una lista vuota, quando non basta qualcosa?</li>
+</ol>
+<p>Un esempio di piano, senza codice. Problema: il cinema costa 8 euro, 5 per chi ha meno di 14 anni e 6 per chi ne ha più di 65.</p>
+<ul>
+<li>Dato: l’età.</li>
+<li>Da ottenere: il prezzo del biglietto.</li>
+<li>Passi: chiedo l’età e la trasformo in numero; se ha meno di 14 anni il prezzo è 5; altrimenti, se ne ha più di 65, il prezzo è 6; altrimenti è 8; stampo il prezzo.</li>
+<li>Casi particolari: esattamente 14 e esattamente 65 (a quale prezzo appartengono?), età 0, età negativa.</li>
+</ul>
+<h3>Provare i casi al confine</h3>
+<p>Un programma che funziona per l’esempio non basta: deve funzionare per tutti i valori. Provane sempre tre tipi:</p>
+<ul>
+<li>il caso <strong>più piccolo</strong> (0, una lista vuota),</li>
+<li>i casi <strong>al confine</strong> (nell’esempio sopra, 13, 14, 65 e 66),</li>
+<li>un caso <strong>normale</strong>.</li>
+</ul>
+<p>Per questo le Sfide hanno anche prove nascoste: servono a scoprire se la soluzione ragiona davvero o è scritta su misura per gli esempi.</p>
+<h3>Scrivere a pezzi</h3>
+<ul>
+<li>Scrivi un pezzo, premi Esegui e controlla, poi passa al pezzo dopo. Non scrivere trenta righe prima di provare.</li>
+<li>Stampa i valori intermedi con <code>print</code> per vedere cosa sta succedendo davvero.</li>
+<li>Se non sai da dove cominciare, risolvi a mano un esempio piccolo e scrivi cosa fai a ogni passo: quei passi sono il programma.</li>
+</ul>
+<h3>Quando una prova non passa</h3>
+<ul>
+<li>Leggi cosa si aspettava il computer e cosa hai ottenuto: la differenza è l’indizio.</li>
+<li>Spesso l’errore è «di uno»: un ciclo parte o si ferma un giro troppo presto o troppo tardi. Controlla dove inizia e dove finisce il <code>range</code>.</li>
+<li>Cambia una cosa sola e ricontrolla, come per gli errori di Python.</li>
+</ul>
+<h2>Parte 4: esempi pratici</h2>
+<p>Ogni esempio rimanda ai capitoli della teoria. Riscrivilo a mano, eseguilo e poi cambialo: cambia un numero, aggiungi una riga, rompilo apposta e leggi l’errore. I risultati qui sotto sono quelli veri dell’esecuzione.</p>
+<h3>Quanti giorni hai vissuto? (capitoli 1, 3, 5, 6, 8)</h3>
+<p>Chiede un nome e un’età, poi calcola i giorni con una moltiplicazione.</p>
+<pre><code class="language-python">nome = input(&quot;Come ti chiami? &quot;)
+anni = int(input(&quot;Quanti anni hai? &quot;))
+giorni = anni * 365
+print(f&quot;Ciao {nome}! Hai vissuto circa {giorni} giorni.&quot;)
+</code></pre>
+<p>Esempio di esecuzione:</p>
+<pre><code>Come ti chiami? Luca
+Quanti anni hai? 12
+Ciao Luca! Hai vissuto circa 4380 giorni.
+</code></pre>
+<p><code>input</code> dà sempre testo, quindi <code>anni</code> passa da <code>int()</code> prima di essere moltiplicato. Prova a togliere <code>int()</code>: cosa stampa il programma, e perché? Poi aggiungi anche i mesi vissuti.</p>
+<h3>Dividere il conto della pizza (capitoli 6, 7, 8)</h3>
+<pre><code class="language-python">totale = float(input(&quot;Quanto avete speso in tutto? &quot;))
+amici = int(input(&quot;In quanti siete? &quot;))
+quota = totale / amici
+print(f&quot;Ognuno paga {quota} euro&quot;)
+</code></pre>
+<pre><code>Quanto avete speso in tutto? 47
+In quanti siete? 4
+Ognuno paga 11.75 euro
+</code></pre>
+<p>Qui il totale si legge con <code>float()</code> perché i soldi possono avere i decimali, mentre le persone sono un numero intero. La divisione <code>/</code> dà sempre un decimale. Prova con 47 euro in 3 persone: esce un numero con moltissime cifre dopo la virgola. È normale: più avanti vedrai come si arrotonda. Per ora, sai già dire perché non esce un numero «bello»?</p>
+<h3>Il biglietto del cinema (capitoli 9 e 10, Parte 3)</h3>
+<p>È il problema del piano nella Parte 3, ora scritto in codice: 8 euro, 5 sotto i 14 anni, 6 sopra i 65.</p>
+<pre><code class="language-python">eta = int(input(&quot;Quanti anni hai? &quot;))
+if eta &lt; 14:
+    prezzo = 5
+elif eta &gt; 65:
+    prezzo = 6
+else:
+    prezzo = 8
+print(&quot;Il biglietto costa&quot;, prezzo, &quot;euro&quot;)
+</code></pre>
+<p>Tre esecuzioni, con 12, 14 e 70 anni:</p>
+<pre><code>Quanti anni hai? 12
+Il biglietto costa 5 euro
+</code></pre>
+<pre><code>Quanti anni hai? 14
+Il biglietto costa 8 euro
+</code></pre>
+<pre><code>Quanti anni hai? 70
+Il biglietto costa 6 euro
+</code></pre>
+<p>Con 14 anni il biglietto costa 8, non 5: la condizione è <code>eta &lt; 14</code>, quindi il 14 non è incluso. È un caso <strong>al confine</strong>. Se il cinema volesse il prezzo ridotto anche a 14 anni, basterebbe scrivere <code>&lt;=</code>. Aggiungi una domanda «hai la tessera?» che porta lo sconto a 1 euro in meno, usando <code>and</code>.</p>
+<h3>L’anno bisestile (capitoli 7, 9 e 10)</h3>
+<p>Un anno è bisestile se si divide per 4, ma non se si divide per 100, a meno che si divida anche per 400.</p>
+<pre><code class="language-python">anno = int(input(&quot;Che anno? &quot;))
+if (anno % 4 == 0 and anno % 100 != 0) or anno % 400 == 0:
+    print(anno, &quot;è bisestile&quot;)
+else:
+    print(anno, &quot;non è bisestile&quot;)
+</code></pre>
+<pre><code>Che anno? 2024
+2024 è bisestile
+</code></pre>
+<pre><code>Che anno? 1900
+1900 non è bisestile
+</code></pre>
+<pre><code>Che anno? 2000
+2000 è bisestile
+</code></pre>
+<p><code>and</code> e <code>or</code> sono mescolati, e le parentesi decidono cosa viene controllato per primo. Prima di eseguire, prevedi cosa dirà il programma per 2023 e per 2100, poi verifica.</p>
+<h3>Il dado (capitolo 11)</h3>
+<pre><code class="language-python">import random
+
+dado = random.randint(1, 6)
+print(&quot;È uscito&quot;, dado)
+if dado == 6:
+    print(&quot;Hai fatto sei! Tira ancora&quot;)
+</code></pre>
+<p>Ogni esecuzione può dare un numero diverso. In questa è uscito:</p>
+<pre><code>È uscito 2
+</code></pre>
+<p>Tira due dadi e somma i risultati. Se escono due numeri uguali, stampa anche «Doppio!».</p>
+<h3>La tabellina (capitolo 12)</h3>
+<pre><code class="language-python">n = int(input(&quot;Quale tabellina? &quot;))
+for i in range(1, 11):
+    print(n, &quot;x&quot;, i, &quot;=&quot;, n * i)
+</code></pre>
+<pre><code>Quale tabellina? 7
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+7 x 6 = 42
+7 x 7 = 49
+7 x 8 = 56
+7 x 9 = 63
+7 x 10 = 70
+</code></pre>
+<p>Il <code>range</code> finisce in 11 perché il numero di fine non è incluso. Cambia il programma in modo che stampi solo i risultati pari (ti serve <code>%</code>).</p>
+<h3>Quanto risparmio in un anno? (capitolo 12)</h3>
+<p>Ricevi 5 euro a settimana. Quanto hai dopo un anno, cioè dopo 52 settimane?</p>
+<pre><code class="language-python">risparmi = 0
+for settimana in range(1, 53):
+    risparmi = risparmi + 5
+print(&quot;Dopo un anno avrai&quot;, risparmi, &quot;euro&quot;)
+</code></pre>
+<pre><code>Dopo un anno avrai 260 euro
+</code></pre>
+<p>La riga <code>risparmi = risparmi + 5</code> è un <strong>accumulatore</strong>: una variabile che a ogni giro si arricchisce di qualcosa. Si crea <strong>prima</strong> del ciclo, partendo da 0, e si stampa <strong>dopo</strong>. È lo stesso schema del contatore <code>tentativi = tentativi + 1</code>, e serve ogni volta che vuoi un totale. Cosa cambia se, invece di 5, aggiungi il numero della settimana? Calcola a mano le prime tre settimane prima di provare.</p>
+<h3>Il conto alla rovescia (capitolo 17)</h3>
+<pre><code class="language-python">n = int(input(&quot;Da che numero parto? &quot;))
+while n &gt; 0:
+    print(n)
+    n = n - 1
+print(&quot;Via!&quot;)
+</code></pre>
+<pre><code>Da che numero parto? 3
+3
+2
+1
+Via!
+</code></pre>
+<p>La condizione <code>n &gt; 0</code> cambia perché dentro il ciclo c’è <code>n = n - 1</code>. Se cancelli quella riga, il programma non finisce più: è il momento di usare il pulsante Stop. E se parti da 0? Prevedi cosa succede prima di provare.</p>
+<h3>La lista della spesa (capitolo 18)</h3>
+<pre><code class="language-python">spesa = [&quot;pane&quot;, &quot;latte&quot;, &quot;mele&quot;]
+spesa.append(&quot;pasta&quot;)
+spesa.remove(&quot;latte&quot;)
+print(&quot;Devo comprare&quot;, len(spesa), &quot;cose:&quot;)
+for cosa in spesa:
+    print(&quot;-&quot;, cosa)
+if &quot;pane&quot; in spesa:
+    print(&quot;Il pane è nella lista&quot;)
+</code></pre>
+<pre><code>Devo comprare 3 cose:
+- pane
+- mele
+- pasta
+Il pane è nella lista
+</code></pre>
+<p>Ho aggiunto la pasta e tolto il latte, quindi la lista è rimasta di tre elementi. Fai chiedere all’utente con <code>input</code> cosa aggiungere, e controlla con <code>in</code> che non sia già nella lista.</p>
+<h3>I voti per materia (capitolo 19)</h3>
+<pre><code class="language-python">voti = {&quot;matematica&quot;: 8, &quot;italiano&quot;: 7, &quot;inglese&quot;: 9}
+voti[&quot;storia&quot;] = 6
+voti[&quot;italiano&quot;] = 8
+for materia in voti:
+    print(materia, &quot;:&quot;, voti[materia])
+print(&quot;In arte ho preso&quot;, voti.get(&quot;arte&quot;, &quot;ancora niente&quot;))
+</code></pre>
+<pre><code>matematica : 8
+italiano : 8
+inglese : 9
+storia : 6
+In arte ho preso ancora niente
+</code></pre>
+<p><code>voti["storia"] = 6</code> aggiunge una voce nuova, <code>voti["italiano"] = 8</code> ne cambia una che c’è già. Con <code>voti["arte"]</code> il programma si sarebbe fermato con un <code>KeyError</code>, ma <code>.get("arte", "ancora niente")</code> restituisce il testo di riserva. Aggiungi un voto che chiedi con <code>input</code> e stampa quante materie ci sono.</p>
+<h3>Due piccole funzioni (capitolo 20)</h3>
+<pre><code class="language-python">def celsius_a_fahrenheit(c):
+    return c * 9 / 5 + 32
+
+def e_pari(n):
+    return n % 2 == 0
+
+print(celsius_a_fahrenheit(0))
+print(celsius_a_fahrenheit(20))
+print(celsius_a_fahrenheit(100))
+print(e_pari(10), e_pari(7))
+</code></pre>
+<pre><code>32.0
+68.0
+212.0
+True False
+</code></pre>
+<p><code>e_pari</code> restituisce direttamente il risultato di un confronto, quindi è una funzione che risponde «vero» o «falso». Questo schema ti servirà nelle Sfide. Scrivi <code>e_multiplo_di_tre(n)</code> e provala con 9, 10 e 0.</p>
+<h2>Parte 5: piccoli progetti completi</h2>
+<p>Qui i pezzi si mettono insieme. Per ogni progetto: leggi il programma, riscrivilo a mano, eseguilo e poi miglioralo con le idee in fondo.</p>
+<h3>Il quiz delle tabelline</h3>
+<p><strong>Cosa mette insieme:</strong> <code>random</code>, <code>for</code>, <code>input</code> e <code>int</code>, <code>if</code> ed <code>elif</code>, un contatore.</p>
+<pre><code class="language-python">import random
+
+punti = 0
+for domanda in range(5):
+    a = random.randint(2, 10)
+    b = random.randint(2, 10)
+    risposta = int(input(f&quot;Quanto fa {a} x {b}? &quot;))
+    if risposta == a * b:
+        print(&quot;Giusto!&quot;)
+        punti = punti + 1
+    else:
+        print(&quot;No, fa&quot;, a * b)
+
+print(f&quot;Hai totalizzato {punti} punti su 5&quot;)
+if punti == 5:
+    print(&quot;Perfetto!&quot;)
+elif punti &gt;= 3:
+    print(&quot;Bravo!&quot;)
+else:
+    print(&quot;Ripassa le tabelline e riprova&quot;)
+</code></pre>
+<p>Una partita (le domande cambiano a ogni esecuzione):</p>
+<pre><code>Quanto fa 7 x 4? 28
+Giusto!
+Quanto fa 8 x 2? 16
+Giusto!
+Quanto fa 3 x 10? 31
+No, fa 30
+Quanto fa 3 x 7? 21
+Giusto!
+Quanto fa 2 x 10? 20
+Giusto!
+Hai totalizzato 4 punti su 5
+Bravo!
+</code></pre>
+<p><strong>Come funziona:</strong></p>
+<ul>
+<li>Il <code>for</code> ripete cinque volte: a ogni giro due numeri a caso da 2 a 10 formano la domanda.</li>
+<li>La risposta viene confrontata con <code>a * b</code>: se è giusta, <code>punti</code> aumenta di 1.</li>
+<li>Alla fine una catena di <code>if</code> ed <code>elif</code> sceglie il messaggio. L’ordine conta: si controlla prima il caso più stretto (5 punti), poi quello più largo.</li>
+</ul>
+<p><strong>Prova a modificarlo:</strong></p>
+<ul>
+<li>Fai scegliere all’utente quante domande vuole.</li>
+<li>Aggiungi domande di addizione e di sottrazione.</li>
+<li>Dopo una risposta sbagliata, dai una seconda possibilità.</li>
+</ul>
+<h3>Il salvadanaio</h3>
+<p><strong>Cosa mette insieme:</strong> <code>while True</code> con <code>break</code>, <code>if</code> / <code>elif</code> / <code>else</code>, variabili che cambiano, una lista di movimenti.</p>
+<pre><code class="language-python">saldo = 0
+movimenti = []
+
+while True:
+    comando = input(&quot;Cosa vuoi fare? (versa, preleva, saldo, esci): &quot;)
+    if comando == &quot;versa&quot;:
+        importo = int(input(&quot;Quanto versi? &quot;))
+        saldo = saldo + importo
+        movimenti.append(&quot;versati &quot; + str(importo))
+    elif comando == &quot;preleva&quot;:
+        importo = int(input(&quot;Quanto prelevi? &quot;))
+        if importo &gt; saldo:
+            print(&quot;Non hai abbastanza soldi&quot;)
+        else:
+            saldo = saldo - importo
+            movimenti.append(&quot;prelevati &quot; + str(importo))
+    elif comando == &quot;saldo&quot;:
+        print(&quot;Nel salvadanaio ci sono&quot;, saldo, &quot;euro&quot;)
+    elif comando == &quot;esci&quot;:
+        break
+    else:
+        print(&quot;Non conosco questo comando&quot;)
+
+print(&quot;Movimenti di oggi:&quot;)
+for m in movimenti:
+    print(&quot;-&quot;, m)
+</code></pre>
+<p>Una sessione:</p>
+<pre><code>Cosa vuoi fare? (versa, preleva, saldo, esci): versa
+Quanto versi? 20
+Cosa vuoi fare? (versa, preleva, saldo, esci): preleva
+Quanto prelevi? 5
+Cosa vuoi fare? (versa, preleva, saldo, esci): preleva
+Quanto prelevi? 50
+Non hai abbastanza soldi
+Cosa vuoi fare? (versa, preleva, saldo, esci): saldo
+Nel salvadanaio ci sono 15 euro
+Cosa vuoi fare? (versa, preleva, saldo, esci): ciao
+Non conosco questo comando
+Cosa vuoi fare? (versa, preleva, saldo, esci): esci
+Movimenti di oggi:
+- versati 20
+- prelevati 5
+</code></pre>
+<p><strong>Come funziona:</strong></p>
+<ul>
+<li>Il ciclo <code>while True</code> gira finché non si incontra <code>break</code>: qui succede quando scrivi <code>esci</code>.</li>
+<li>Ogni comando è un ramo della catena. L’<code>else</code> finale raccoglie tutto quello che non avevi previsto.</li>
+<li>Prima di prelevare, un <code>if</code> dentro il ramo controlla che i soldi bastino: è un caso particolare gestito.</li>
+<li>I movimenti finiscono in una lista con <code>append</code>, e si stampano alla fine con un <code>for</code>.</li>
+</ul>
+<p><strong>Prova a modificarlo:</strong></p>
+<ul>
+<li>Aggiungi il comando <code>storia</code>, che stampa i movimenti senza uscire.</li>
+<li>Blocca i versamenti negativi o uguali a 0: che messaggio dai?</li>
+<li>Fai partire il salvadanaio con 10 euro già dentro.</li>
+</ul>
+<h3>Il convertitore di temperature</h3>
+<p><strong>Cosa mette insieme:</strong> funzioni con <code>return</code>, <code>input</code> e <code>float</code>, <code>if</code> / <code>elif</code> / <code>else</code>.</p>
+<pre><code class="language-python">def celsius_a_fahrenheit(c):
+    return c * 9 / 5 + 32
+
+def fahrenheit_a_celsius(f):
+    return (f - 32) * 5 / 9
+
+scelta = input(&quot;Da Celsius a Fahrenheit (1) o il contrario (2)? &quot;)
+if scelta == &quot;1&quot;:
+    gradi = float(input(&quot;Quanti gradi Celsius? &quot;))
+    print(gradi, &quot;°C sono&quot;, celsius_a_fahrenheit(gradi), &quot;°F&quot;)
+elif scelta == &quot;2&quot;:
+    gradi = float(input(&quot;Quanti gradi Fahrenheit? &quot;))
+    print(gradi, &quot;°F sono&quot;, fahrenheit_a_celsius(gradi), &quot;°C&quot;)
+else:
+    print(&quot;Scelta non valida&quot;)
+</code></pre>
+<p>Tre esecuzioni:</p>
+<pre><code>Da Celsius a Fahrenheit (1) o il contrario (2)? 1
+Quanti gradi Celsius? 25
+25.0 °C sono 77.0 °F
+</code></pre>
+<pre><code>Da Celsius a Fahrenheit (1) o il contrario (2)? 2
+Quanti gradi Fahrenheit? 212
+212.0 °F sono 100.0 °C
+</code></pre>
+<pre><code>Da Celsius a Fahrenheit (1) o il contrario (2)? 3
+Scelta non valida
+</code></pre>
+<p><strong>Come funziona:</strong></p>
+<ul>
+<li>Le due funzioni stanno in alto, perché vanno definite <strong>prima</strong> di essere chiamate.</li>
+<li>Le funzioni non stampano: <strong>restituiscono</strong> il risultato, e chi le usa decide cosa farne. Per questo si possono riutilizzare in altri programmi.</li>
+<li>Il programma principale è solo la scelta e la stampa.</li>
+</ul>
+<p><strong>Prova a modificarlo:</strong></p>
+<ul>
+<li>Aggiungi la conversione tra chilometri e miglia (un miglio vale circa 1,61 chilometri).</li>
+<li>Se la temperatura in Celsius è sotto 10, stampa anche «Mettiti la giacca!».</li>
+<li>Scrivi una terza scelta che ripete la conversione finché non scrivi «basta».</li>
+</ul>
+<h3>E adesso?</h3>
+<p>Dopo questi progetti, inventa il tuo: parti da un’idea piccola, scrivi il PIANO come nella Parte 3 e costruiscilo a pezzi. Un buon programma da cui partire è sempre un problema che hai davvero, per esempio i punti di una partita, le spese del mese o un quiz per i tuoi amici.</p>
+</main></body>
+</html>

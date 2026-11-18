@@ -1,0 +1,24 @@
+{
+  "titolo": "Il blocco nota e il creeper",
+  "concetti": "winsound.Beep, ciclo for, range",
+  "risultato": "Prima una nota, poi una melodia, poi il sibilo del creeper che sale sempre di più.",
+  "nota": "Funziona solo su Windows, perché usa il modulo winsound.",
+  "passi": [
+    {
+      "nome": "Prevedi",
+      "testo": "Se scrivo 880 al posto di 440, il suono sarà più alto o più basso? Decidi prima, poi ascolta."
+    },
+    {
+      "nome": "Modifica",
+      "testo": "Suona una melodia con le frequenze 262, 294, 330, 349, un Beep per nota. Dopo quattro righe quasi uguali, sostituiscile con un ciclo for e range(). Poi la sfida: il sibilo del creeper, un suono che sale sempre più in fretta."
+    },
+    {
+      "nome": "Ripara",
+      "testo": "Premi «Carica versione da riparare». Parte da 0 e si rompe: Beep accetta solo frequenze tra 37 e 32767. Il messaggio è in inglese, leggilo con calma: dice cosa non va."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Cosa significano i tre numeri dentro range(200, 1000, 100)? Quali scrivi tu e quali decide Python?"
+    }
+  ]
+}

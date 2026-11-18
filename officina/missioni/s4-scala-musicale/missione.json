@@ -1,0 +1,148 @@
+{
+  "tipo": "sfida",
+  "titolo": "La scala musicale",
+  "concetti": "funzioni, for e range, winsound",
+  "nota": "Il pulsante Controlla non suona niente: usa un winsound finto che registra le note. Per ascoltare, chiama la funzione in fondo al file e premi Esegui (solo su Windows).",
+  "enunciato": "Scrivi una funzione che suona una scala: una serie di note che salgono, una dopo l’altra.",
+  "requisiti": [
+    "La funzione si chiama scala(partenza, passo, quante).",
+    "Suona quante note con winsound.Beep: la prima a partenza hertz, ogni nota successiva di passo hertz più alta della precedente.",
+    "Ogni nota dura 200 millisecondi.",
+    "Esempio: scala(262, 50, 3) suona 262, 312 e 362 Hz.",
+    "Con quante uguale a 0 non suona niente.",
+    "Extra: scrivi anche scala_discendente(partenza, passo, quante), che fa il contrario: ogni nota è di passo hertz più bassa della precedente."
+  ],
+  "passi": [
+    {
+      "nome": "Pianifica",
+      "testo": "Prima di scrivere codice, riempi il PIANO in cima al file con parole tue: cosa ti viene dato, cosa devi ottenere, quali passi servono e quali casi particolari ci sono. Puoi farlo anche su carta."
+    },
+    {
+      "nome": "Scrivi",
+      "testo": "Scrivi prima la scala che sale. Prova con scala(262, 50, 3) in fondo al file e ascolta se sale come ti aspetti. Poi pensa a cosa cambia per quella discendente."
+    },
+    {
+      "nome": "Controlla",
+      "testo": "Premi «Controlla»: il computer registra le note suonate dalle tue funzioni e le confronta con quelle attese."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Spiega a voce a un adulto come hai ragionato, partendo dal piano. Quale passo ti ha fatto pensare di più? Cosa cambieresti ora?"
+    }
+  ],
+  "prove": [
+    {
+      "f": "scala",
+      "args": [
+        262,
+        50,
+        4
+      ],
+      "beep": [
+        [
+          262,
+          200
+        ],
+        [
+          312,
+          200
+        ],
+        [
+          362,
+          200
+        ],
+        [
+          412,
+          200
+        ]
+      ]
+    },
+    {
+      "f": "scala",
+      "args": [
+        440,
+        110,
+        2
+      ],
+      "beep": [
+        [
+          440,
+          200
+        ],
+        [
+          550,
+          200
+        ]
+      ]
+    },
+    {
+      "f": "scala",
+      "args": [
+        300,
+        25,
+        1
+      ],
+      "beep": [
+        [
+          300,
+          200
+        ]
+      ],
+      "nascosta": true
+    },
+    {
+      "f": "scala",
+      "args": [
+        500,
+        100,
+        0
+      ],
+      "beep": [],
+      "nascosta": true
+    },
+    {
+      "f": "scala_discendente",
+      "args": [
+        440,
+        40,
+        3
+      ],
+      "beep": [
+        [
+          440,
+          200
+        ],
+        [
+          400,
+          200
+        ],
+        [
+          360,
+          200
+        ]
+      ],
+      "extra": true
+    },
+    {
+      "f": "scala_discendente",
+      "args": [
+        300,
+        100,
+        2
+      ],
+      "beep": [
+        [
+          300,
+          200
+        ],
+        [
+          200,
+          200
+        ]
+      ],
+      "extra": true,
+      "nascosta": true
+    }
+  ],
+  "gruppo": "Sfide con Minecraft e musica"
+}

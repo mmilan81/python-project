@@ -1,0 +1,151 @@
+{
+  "tipo": "sfida",
+  "gruppo": "Sfide con numeri e vita di tutti i giorni",
+  "titolo": "Il resto al bar",
+  "concetti": "funzioni, liste, for, while, //, %",
+  "enunciato": "Al bar paghi e il barista deve darti il resto con meno monete possibile. Le monete valgono 2 euro, 1 euro, 50, 20, 10, 5, 2 e 1 centesimi. Per evitare i decimali lavora in centesimi: 2 euro sono 200, 1 euro è 100.",
+  "requisiti": [
+    "Scrivi una funzione monete_di_resto(centesimi) che restituisce la lista delle monete del resto, dalla più grande alla più piccola, usando sempre la moneta più grande che ci sta.",
+    "Esempio: monete_di_resto(370) restituisce [200, 100, 50, 20].",
+    "Le monete uguali si ripetono: monete_di_resto(99) restituisce [50, 20, 20, 5, 2, 2].",
+    "Con resto 0 restituisce una lista vuota.",
+    "La funzione non stampa: restituisce soltanto la lista.",
+    "Extra: scrivi anche resto_da_pagare(prezzo, pagato), con i valori in centesimi, che restituisce la lista delle monete del resto. Se hai pagato meno del prezzo restituisce None."
+  ],
+  "passi": [
+    {
+      "nome": "Pianifica",
+      "testo": "Prima di scrivere codice, riempi il PIANO in cima al file con parole tue. Risolvi a mano l’esempio dell’enunciato e scrivi i passi che hai fatto."
+    },
+    {
+      "nome": "Scrivi",
+      "testo": "Prova a mano con 370: qual è la moneta più grande che ci sta? Dopo averla data, quanto resta? Cosa ripeti finché non resta niente? Le monete disponibili sono un elenco: che struttura dati usi per tenerle?"
+    },
+    {
+      "nome": "Controlla",
+      "testo": "Premi «Controlla»: il computer prova il tuo codice con casi diversi, anche nascosti. Se una prova non passa, leggi cosa si aspettava e cosa hai ottenuto."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Spiega a voce a un adulto come hai ragionato, partendo dal piano. Quale caso particolare non avevi previsto? Cosa cambieresti ora?"
+    }
+  ],
+  "prove": [
+    {
+      "f": "monete_di_resto",
+      "args": [
+        370
+      ],
+      "atteso": [
+        200,
+        100,
+        50,
+        20
+      ]
+    },
+    {
+      "f": "monete_di_resto",
+      "args": [
+        0
+      ],
+      "atteso": []
+    },
+    {
+      "f": "monete_di_resto",
+      "args": [
+        99
+      ],
+      "atteso": [
+        50,
+        20,
+        20,
+        5,
+        2,
+        2
+      ]
+    },
+    {
+      "f": "monete_di_resto",
+      "args": [
+        1
+      ],
+      "atteso": [
+        1
+      ],
+      "nascosta": true
+    },
+    {
+      "f": "monete_di_resto",
+      "args": [
+        400
+      ],
+      "atteso": [
+        200,
+        200
+      ],
+      "nascosta": true
+    },
+    {
+      "f": "monete_di_resto",
+      "args": [
+        288
+      ],
+      "atteso": [
+        200,
+        50,
+        20,
+        10,
+        5,
+        2,
+        1
+      ],
+      "nascosta": true
+    },
+    {
+      "f": "resto_da_pagare",
+      "args": [
+        350,
+        500
+      ],
+      "atteso": [
+        100,
+        50
+      ],
+      "extra": true
+    },
+    {
+      "f": "resto_da_pagare",
+      "args": [
+        500,
+        500
+      ],
+      "atteso": [],
+      "extra": true
+    },
+    {
+      "f": "resto_da_pagare",
+      "args": [
+        500,
+        300
+      ],
+      "atteso": null,
+      "extra": true
+    },
+    {
+      "f": "resto_da_pagare",
+      "args": [
+        199,
+        1000
+      ],
+      "atteso": [
+        200,
+        200,
+        200,
+        200,
+        1
+      ],
+      "extra": true,
+      "nascosta": true
+    }
+  ]
+}

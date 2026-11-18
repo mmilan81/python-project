@@ -1,0 +1,14 @@
+import winsound
+
+# PIANO (scrivilo prima di programmare, con parole tue)
+# 1. Cosa mi viene dato?
+#
+# 2. Cosa devo ottenere?
+#
+# 3. Quali passi servono, in ordine?
+#
+# 4. Quali casi particolari ci sono? (cosa succede se...?)
+#
+
+def scala(partenza, passo, quante):
+    pass   # cancella questa riga e scrivi il tuo codice

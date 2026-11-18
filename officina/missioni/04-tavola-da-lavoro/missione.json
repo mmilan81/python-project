@@ -1,0 +1,24 @@
+{
+  "titolo": "La tavola da lavoro",
+  "concetti": "and, or, confronti, if / elif / else, //",
+  "risultato": "Un programma che controlla se hai abbastanza risorse per costruire un piccone di ferro.",
+  "nota": "Regole semplificate rispetto al gioco vero: 1 blocco di legno dà 2 bastoni, e il piccone di ferro richiede 3 lingotti di ferro e 2 bastoni.",
+  "passi": [
+    {
+      "nome": "Prevedi",
+      "testo": "Con 5 blocchi di legno e 4 lingotti di ferro, quale messaggio compare? E con 0 di legno e 4 di ferro? E con 0 e 1? Scrivi le tre risposte prima di provare."
+    },
+    {
+      "nome": "Modifica",
+      "testo": "Calcola anche quanti picconi riesci a costruire. Esempio: con 5 blocchi di legno (cioè 10 bastoni) e 10 lingotti di ferro sono 3, perché il ferro finisce prima: 10 // 3 dà 3, mentre i bastoni basterebbero per 5. Ti serve il più piccolo dei due risultati: cerca nella documentazione di Python la funzione min()."
+    },
+    {
+      "nome": "Ripara",
+      "testo": "Premi «Carica versione da riparare». Prima si ferma con un errore. Dopo averlo corretto il programma gira, ma in certi casi il messaggio è sbagliato: prova più combinazioni di numeri, anche quelle che ti aspetti poco, e confrontale con quello che avevi previsto."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Che differenza c’è tra and e or? Fai un esempio con il gioco per ciascuno."
+    }
+  ]
+}

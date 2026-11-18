@@ -1,0 +1,24 @@
+{
+  "titolo": "Il jukebox",
+  "concetti": "def, parametri, return, funzioni che ne chiamano altre",
+  "risultato": "Un jukebox fatto di funzioni: una suona una nota, un’altra suona un’intera melodia, e una terza fa il calcolo degli stack.",
+  "nota": "La parte musicale funziona solo su Windows, perché usa il modulo winsound.",
+  "passi": [
+    {
+      "nome": "Prevedi",
+      "testo": "Quando premi Esegui, le righe con def suonano subito delle note? Quante note suoneranno in tutto e in quale ordine? Cosa stamperà l’ultima riga?"
+    },
+    {
+      "nome": "Modifica",
+      "testo": "Aggiungi una seconda melodia, scelta da te, riusando melodia() senza riscrivere il ciclo. Poi scrivi una funzione avanzo(blocchi) che restituisce i blocchi che avanzano dopo gli stack da 64 (con 200 deve dare 8) e usala per stampare una frase."
+    },
+    {
+      "nome": "Ripara",
+      "testo": "Premi «Carica versione da riparare». Ci sono tre problemi in fila, e l’ultimo non dà nessun errore: il risultato è sbagliato. Leggi con attenzione cosa stampa."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Che differenza c’è tra print e return dentro una funzione? Perché a volte conviene scrivere una funzione invece di ricopiare le stesse righe?"
+    }
+  ]
+}

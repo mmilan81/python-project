@@ -1,0 +1,122 @@
+{
+  "tipo": "sfida",
+  "titolo": "Il registro dello zaino",
+  "concetti": "funzioni, return, liste, dizionari",
+  "enunciato": "Il giocatore ha uno zaino pieno di oggetti e vuole sapere quanti ne ha di ogni tipo. Lo zaino è una lista con i nomi degli oggetti, anche ripetuti, per esempio [\"ferro\", \"legno\", \"ferro\"].",
+  "requisiti": [
+    "Scrivi una funzione conta_oggetti(zaino) che restituisce (con return) un dizionario: le chiavi sono i nomi degli oggetti, i valori quante volte compaiono.",
+    "Con [\"ferro\", \"legno\", \"ferro\"] deve restituire {\"ferro\": 2, \"legno\": 1}.",
+    "Con una lista vuota deve restituire un dizionario vuoto.",
+    "La funzione non stampa e non chiede input: restituisce soltanto il risultato.",
+    "Extra: scrivi anche piu_frequente(zaino), che restituisce il nome dell’oggetto più numeroso. In caso di parità vale quello che compare prima nella lista. Con una lista vuota restituisce None."
+  ],
+  "passi": [
+    {
+      "nome": "Pianifica",
+      "testo": "Prima di scrivere codice, riempi il PIANO in cima al file con parole tue: cosa ti viene dato, cosa devi ottenere, quali passi servono e quali casi particolari ci sono. Puoi farlo anche su carta."
+    },
+    {
+      "nome": "Scrivi",
+      "testo": "Pensa: cosa devo ricordare mentre scorro la lista? Che tipo di dati mi serve per tenere i conti? Puoi provare le tue funzioni in fondo al file con print(conta_oggetti([...])), ma non usare input() fuori dalle funzioni."
+    },
+    {
+      "nome": "Controlla",
+      "testo": "Premi «Controlla»: il computer chiama le tue funzioni con liste diverse e confronta i risultati con quelli attesi."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Spiega a voce a un adulto come hai ragionato, partendo dal piano. Quale passo ti ha fatto pensare di più? Cosa cambieresti ora?"
+    }
+  ],
+  "prove": [
+    {
+      "f": "conta_oggetti",
+      "args": [
+        [
+          "ferro",
+          "legno",
+          "ferro"
+        ]
+      ],
+      "atteso": {
+        "ferro": 2,
+        "legno": 1
+      }
+    },
+    {
+      "f": "conta_oggetti",
+      "args": [
+        []
+      ],
+      "atteso": {}
+    },
+    {
+      "f": "conta_oggetti",
+      "args": [
+        [
+          "pane",
+          "pane",
+          "pane",
+          "pane"
+        ]
+      ],
+      "atteso": {
+        "pane": 4
+      }
+    },
+    {
+      "f": "conta_oggetti",
+      "args": [
+        [
+          "a",
+          "b",
+          "c",
+          "a",
+          "b",
+          "a"
+        ]
+      ],
+      "atteso": {
+        "a": 3,
+        "b": 2,
+        "c": 1
+      },
+      "nascosta": true
+    },
+    {
+      "f": "piu_frequente",
+      "args": [
+        [
+          "ferro",
+          "legno",
+          "ferro"
+        ]
+      ],
+      "atteso": "ferro",
+      "extra": true
+    },
+    {
+      "f": "piu_frequente",
+      "args": [
+        []
+      ],
+      "atteso": null,
+      "extra": true
+    },
+    {
+      "f": "piu_frequente",
+      "args": [
+        [
+          "a",
+          "b",
+          "b",
+          "a"
+        ]
+      ],
+      "atteso": "a",
+      "extra": true,
+      "nascosta": true
+    }
+  ],
+  "gruppo": "Sfide con Minecraft e musica"
+}

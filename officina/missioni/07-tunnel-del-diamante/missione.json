@@ -1,0 +1,23 @@
+{
+  "titolo": "Il tunnel del diamante",
+  "concetti": "while, contatori, and, ciclo infinito",
+  "risultato": "Il gioco della Missione 2, ma ora scavi finché trovi il diamante e il programma conta i tuoi tentativi.",
+  "passi": [
+    {
+      "nome": "Prevedi",
+      "testo": "Il diamante è a profondità 40. Scrivi 10, poi 60, poi 40. Quali messaggi appariranno, nell’ordine, e quanti tentativi dirà alla fine? Scrivilo su un foglio prima di provare."
+    },
+    {
+      "nome": "Modifica",
+      "testo": "Aggiungi un limite di 7 tentativi: dopo, la lava ti ferma e il programma scrive «Sei caduto nella lava!». Ti servirà un and nella condizione del while e un if dopo il ciclo per capire come è finita."
+    },
+    {
+      "nome": "Ripara",
+      "testo": "Premi «Carica versione da riparare». Prima si ferma con un errore. Dopo averlo corretto, il programma non si ferma più: usa il pulsante Stop, poi cerca cosa manca dentro il ciclo perché la condizione possa cambiare."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Che differenza c’è tra for e while? Fai un esempio di quando useresti l’uno e un esempio di quando useresti l’altro."
+    }
+  ]
+}

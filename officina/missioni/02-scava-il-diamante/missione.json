@@ -1,0 +1,23 @@
+{
+  "titolo": "Scava il diamante",
+  "concetti": "import, random, if / elif / else, confronti",
+  "risultato": "Il computer nasconde un diamante a una profondità casuale e ti dice se hai scavato troppo poco, troppo o giusto.",
+  "passi": [
+    {
+      "nome": "Prevedi",
+      "testo": "Se il diamante è a profondità 7 e scavo a 4, quale riga stampa? E se scavo a 7?"
+    },
+    {
+      "nome": "Modifica",
+      "testo": "Allarga il gioco da 1 a 100. Poi aggiungi «Senti un luccichio!» quando sei a meno di 3 blocchi di distanza dal diamante. Ti serve abs(): cercalo nella documentazione di Python."
+    },
+    {
+      "nome": "Ripara",
+      "testo": "Premi «Carica versione da riparare». Leggi il riquadro e scopri la differenza tra = e ==."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Perché il gioco finisce dopo un solo scavo? Cosa servirebbe per poter riprovare più volte?"
+    }
+  ]
+}

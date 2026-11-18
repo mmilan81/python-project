@@ -1,0 +1,134 @@
+{
+  "tipo": "sfida",
+  "titolo": "Il commerciante del villaggio",
+  "concetti": "input, int(), //, %, if, casi particolari",
+  "enunciato": "Un commerciante del villaggio vende oggetti a un prezzo fisso, in smeraldi. Scrivi un programma che aiuti il giocatore a capire quanto può comprare. Esempio: con 20 smeraldi e un prezzo di 6, puoi comprare 3 oggetti e ti avanzano 2 smeraldi.",
+  "requisiti": [
+    "Il programma chiede quanti smeraldi hai e quanto costa un oggetto.",
+    "Stampa quanti oggetti puoi comprare e quanti smeraldi ti avanzano.",
+    "Se non puoi comprare nemmeno un oggetto, stampa esattamente: Non hai abbastanza smeraldi",
+    "Extra: se il prezzo è 0 o negativo, stampa esattamente: Prezzo non valido"
+  ],
+  "passi": [
+    {
+      "nome": "Pianifica",
+      "testo": "Prima di scrivere codice, riempi il PIANO in cima al file con parole tue: cosa ti viene dato, cosa devi ottenere, quali passi servono e quali casi particolari ci sono. Puoi farlo anche su carta."
+    },
+    {
+      "nome": "Scrivi",
+      "testo": "Traduci il piano in codice, un pezzo alla volta. Dopo ogni pezzo premi Esegui e prova con numeri di cui conosci già il risultato."
+    },
+    {
+      "nome": "Controlla",
+      "testo": "Premi «Controlla»: il computer prova il tuo programma con numeri diversi. Se una prova fallisce, leggi cosa si aspettava e cosa hai stampato, poi correggi."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Spiega a voce a un adulto come hai ragionato, partendo dal piano. Quale passo ti ha fatto pensare di più? Cosa cambieresti ora?"
+    }
+  ],
+  "prove": [
+    {
+      "titolo": "47 smeraldi, prezzo 9",
+      "input": [
+        47,
+        9
+      ],
+      "righe": [
+        [
+          "5"
+        ],
+        [
+          "2"
+        ]
+      ],
+      "assenti": [
+        "non hai abbastanza"
+      ]
+    },
+    {
+      "titolo": "100 smeraldi, prezzo 25",
+      "input": [
+        100,
+        25
+      ],
+      "righe": [
+        [
+          "4"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "assenti": [
+        "non hai abbastanza"
+      ]
+    },
+    {
+      "titolo": "8 smeraldi, prezzo 10",
+      "input": [
+        8,
+        10
+      ],
+      "righe": [
+        [
+          "non hai abbastanza smeraldi"
+        ]
+      ]
+    },
+    {
+      "input": [
+        60,
+        7
+      ],
+      "righe": [
+        [
+          "8"
+        ],
+        [
+          "4"
+        ]
+      ],
+      "nascosta": true
+    },
+    {
+      "input": [
+        0,
+        5
+      ],
+      "righe": [
+        [
+          "non hai abbastanza smeraldi"
+        ]
+      ],
+      "nascosta": true
+    },
+    {
+      "titolo": "10 smeraldi, prezzo 0",
+      "input": [
+        10,
+        0
+      ],
+      "righe": [
+        [
+          "prezzo non valido"
+        ]
+      ],
+      "extra": true
+    },
+    {
+      "input": [
+        5,
+        -3
+      ],
+      "righe": [
+        [
+          "prezzo non valido"
+        ]
+      ],
+      "extra": true,
+      "nascosta": true
+    }
+  ],
+  "gruppo": "Sfide con Minecraft e musica"
+}

@@ -1,0 +1,23 @@
+{
+  "titolo": "Lo zaino e le risorse",
+  "concetti": "liste, dizionari, indici, for su una lista",
+  "risultato": "Un programma che gestisce l’inventario: una lista di oggetti e un dizionario con le quantità di ogni risorsa.",
+  "passi": [
+    {
+      "nome": "Prevedi",
+      "testo": "Quanti oggetti dirà di avere nello zaino? E quanti diamanti ci saranno alla fine? Scrivi le risposte prima di eseguire."
+    },
+    {
+      "nome": "Modifica",
+      "testo": "Chiedi con input() il nome di un oggetto da raccogliere. Se è già nello zaino scrivi «Ce l’hai già!», altrimenti aggiungilo con append e stampa lo zaino aggiornato. Sfida: chiedi anche una risorsa e una quantità, e aggiungile al dizionario (se la risorsa c’è già, somma la quantità)."
+    },
+    {
+      "nome": "Ripara",
+      "testo": "Premi «Carica versione da riparare». Ci sono tre problemi: uno non dà nessun errore ma il risultato è sbagliato, gli altri due fermano il programma. Ricorda da che numero partono le posizioni di una lista."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Quando usi una lista e quando un dizionario? Fai un esempio di ciascuno preso dal gioco."
+    }
+  ]
+}

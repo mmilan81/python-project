@@ -1,0 +1,138 @@
+{
+  "tipo": "sfida",
+  "gruppo": "Sfide con numeri e vita di tutti i giorni",
+  "titolo": "Il gioco del Buzz",
+  "concetti": "for e range, %, if / elif nell’ordine giusto",
+  "nota": "Questo problema è un classico: lo usano spesso anche nei colloqui di lavoro per programmatori.",
+  "enunciato": "In classe o in macchina conosci il gioco del Buzz: si conta a turno, e al posto dei multipli di 3 si dice «Fizz», al posto dei multipli di 5 si dice «Buzz», al posto dei numeri che sono multipli di entrambi si dice «FizzBuzz». Scrivi il programma che gioca da solo. Esempio contando fino a 6: 1, 2, Fizz, 4, Buzz, Fizz.",
+  "requisiti": [
+    "Il programma chiede fino a che numero contare.",
+    "Stampa una cosa per riga, da 1 fino a quel numero compreso.",
+    "Un multiplo di 3 diventa Fizz, un multiplo di 5 diventa Buzz, un multiplo di entrambi diventa FizzBuzz. Gli altri numeri restano numeri.",
+    "Extra: se il numero scelto è minore di 1, stampa solo: Niente da contare"
+  ],
+  "passi": [
+    {
+      "nome": "Pianifica",
+      "testo": "Prima di scrivere codice, riempi il PIANO in cima al file con parole tue. Risolvi a mano l’esempio dell’enunciato e scrivi i passi che hai fatto."
+    },
+    {
+      "nome": "Scrivi",
+      "testo": "Scrivi prima solo il ciclo che stampa i numeri da 1 a n. Poi aggiungi una regola alla volta. Attenzione all’ordine con cui controlli le regole: dove va quella del 15?"
+    },
+    {
+      "nome": "Controlla",
+      "testo": "Premi «Controlla»: il computer prova il tuo codice con casi diversi, anche nascosti. Se una prova non passa, leggi cosa si aspettava e cosa hai ottenuto."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Spiega a voce a un adulto come hai ragionato, partendo dal piano. Quale caso particolare non avevi previsto? Cosa cambieresti ora?"
+    }
+  ],
+  "prove": [
+    {
+      "titolo": "fino a 6",
+      "input": [
+        6
+      ],
+      "linee": [
+        "1",
+        "2",
+        "Fizz",
+        "4",
+        "Buzz",
+        "Fizz"
+      ]
+    },
+    {
+      "titolo": "fino a 15",
+      "input": [
+        15
+      ],
+      "linee": [
+        "1",
+        "2",
+        "Fizz",
+        "4",
+        "Buzz",
+        "Fizz",
+        "7",
+        "8",
+        "Fizz",
+        "Buzz",
+        "11",
+        "Fizz",
+        "13",
+        "14",
+        "FizzBuzz"
+      ]
+    },
+    {
+      "input": [
+        30
+      ],
+      "linee": [
+        "1",
+        "2",
+        "Fizz",
+        "4",
+        "Buzz",
+        "Fizz",
+        "7",
+        "8",
+        "Fizz",
+        "Buzz",
+        "11",
+        "Fizz",
+        "13",
+        "14",
+        "FizzBuzz",
+        "16",
+        "17",
+        "Fizz",
+        "19",
+        "Buzz",
+        "Fizz",
+        "22",
+        "23",
+        "Fizz",
+        "Buzz",
+        "26",
+        "Fizz",
+        "28",
+        "29",
+        "FizzBuzz"
+      ],
+      "nascosta": true
+    },
+    {
+      "input": [
+        1
+      ],
+      "linee": [
+        "1"
+      ],
+      "nascosta": true
+    },
+    {
+      "titolo": "fino a 0",
+      "input": [
+        0
+      ],
+      "linee": [
+        "Niente da contare"
+      ],
+      "extra": true
+    },
+    {
+      "input": [
+        -4
+      ],
+      "linee": [
+        "Niente da contare"
+      ],
+      "extra": true,
+      "nascosta": true
+    }
+  ]
+}

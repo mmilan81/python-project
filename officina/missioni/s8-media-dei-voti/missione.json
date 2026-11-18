@@ -1,0 +1,182 @@
+{
+  "tipo": "sfida",
+  "gruppo": "Sfide con numeri e vita di tutti i giorni",
+  "titolo": "La media dei voti",
+  "concetti": "while, accumulatore, contatore, /, if, casi particolari",
+  "enunciato": "Il prof ti detta i voti uno dopo l’altro e vuoi sapere la media e se sei promosso. Scrivi un programma che chiede i voti uno alla volta finché scrivi 0 (lo 0 non è un voto: serve solo per dire «ho finito»), poi stampa la media. Esempio: scrivi 5, poi 6, poi 0: la media è 5.5.",
+  "requisiti": [
+    "Il programma chiede un voto alla volta, finché scrivi 0.",
+    "Alla fine stampa la media, per esempio: Media: 5.5 (usa la divisione con /, che dà un numero con la virgola).",
+    "Poi stampa Promosso se la media è almeno 6, altrimenti Non promosso.",
+    "Se non inserisci nessun voto (scrivi subito 0), stampa solo: Nessun voto inserito",
+    "Extra: i voti validi vanno da 1 a 10. Se scrivi un voto fuori da questo intervallo stampa Voto non valido e non lo contare."
+  ],
+  "passi": [
+    {
+      "nome": "Pianifica",
+      "testo": "Prima di scrivere codice, riempi il PIANO in cima al file con parole tue. Risolvi a mano l’esempio dell’enunciato e scrivi i passi che hai fatto."
+    },
+    {
+      "nome": "Scrivi",
+      "testo": "Pensa a cosa deve ricordare il programma mentre i voti arrivano: che cosa ti serve per calcolare una media alla fine? Cosa decide quando il ciclo si ferma? E cosa succede se il primo numero è subito 0?"
+    },
+    {
+      "nome": "Controlla",
+      "testo": "Premi «Controlla»: il computer prova il tuo codice con casi diversi, anche nascosti. Se una prova non passa, leggi cosa si aspettava e cosa hai ottenuto."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Spiega a voce a un adulto come hai ragionato, partendo dal piano. Quale caso particolare non avevi previsto? Cosa cambieresti ora?"
+    }
+  ],
+  "prove": [
+    {
+      "titolo": "voti 5 e 6",
+      "input": [
+        5,
+        6,
+        0
+      ],
+      "righe": [
+        [
+          "media",
+          "5.5"
+        ],
+        [
+          "non promosso"
+        ]
+      ]
+    },
+    {
+      "titolo": "voti 10, 9, 8 e 7",
+      "input": [
+        10,
+        9,
+        8,
+        7,
+        0
+      ],
+      "righe": [
+        [
+          "media",
+          "8.5"
+        ],
+        [
+          "promosso"
+        ]
+      ],
+      "assenti": [
+        "non promosso"
+      ]
+    },
+    {
+      "titolo": "nessun voto",
+      "input": [
+        0
+      ],
+      "righe": [
+        [
+          "nessun voto inserito"
+        ]
+      ],
+      "assenti": [
+        "media"
+      ]
+    },
+    {
+      "input": [
+        6,
+        0
+      ],
+      "righe": [
+        [
+          "media",
+          "6.0"
+        ],
+        [
+          "promosso"
+        ]
+      ],
+      "assenti": [
+        "non promosso"
+      ],
+      "nascosta": true
+    },
+    {
+      "input": [
+        4,
+        5,
+        0
+      ],
+      "righe": [
+        [
+          "media",
+          "4.5"
+        ],
+        [
+          "non promosso"
+        ]
+      ],
+      "nascosta": true
+    },
+    {
+      "input": [
+        8,
+        7,
+        9,
+        8,
+        0
+      ],
+      "righe": [
+        [
+          "media",
+          "8.0"
+        ],
+        [
+          "promosso"
+        ]
+      ],
+      "assenti": [
+        "non promosso"
+      ],
+      "nascosta": true
+    },
+    {
+      "titolo": "voti 7, 11 e 8",
+      "input": [
+        7,
+        11,
+        8,
+        0
+      ],
+      "righe": [
+        [
+          "voto non valido"
+        ],
+        [
+          "media",
+          "7.5"
+        ]
+      ],
+      "extra": true
+    },
+    {
+      "input": [
+        -2,
+        6,
+        0
+      ],
+      "righe": [
+        [
+          "voto non valido"
+        ],
+        [
+          "media",
+          "6.0"
+        ]
+      ],
+      "extra": true,
+      "nascosta": true
+    }
+  ]
+}

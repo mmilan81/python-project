@@ -1,0 +1,23 @@
+{
+  "titolo": "Sopravvivenza",
+  "concetti": "variabili che cambiano, if dentro if, elif in ordine, confronto tra testi",
+  "risultato": "Un programma che calcola vita e fame dopo l’attacco di un creeper e ti dice come stai.",
+  "passi": [
+    {
+      "nome": "Prevedi",
+      "testo": "Se scrivo 8 di danno e rispondo «si», quanti punti vita e quanta fame stamperà? Quale messaggio finale comparirà?"
+    },
+    {
+      "nome": "Modifica",
+      "testo": "Fai in modo che la vita non scenda mai sotto 0. Poi aggiungi: se la fame è sotto 4, stampa «Hai troppa fame per correre!». Sfida: se rispondi qualcosa che non sia «si» o «no», il programma deve dirlo."
+    },
+    {
+      "nome": "Ripara",
+      "testo": "Premi «Carica versione da riparare». Ci sono tre problemi in fila: i primi due fermano il programma, l’ultimo no. Per trovarlo prova valori diversi di danno (per esempio 17) e controlla quale messaggio dovrebbe comparire."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Perché nella catena di elif l’ordine delle condizioni conta? Cosa succede se metti prima quella più larga?"
+    }
+  ]
+}

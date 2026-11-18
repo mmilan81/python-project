@@ -1,0 +1,23 @@
+{
+  "titolo": "La scheda del giocatore",
+  "concetti": "print, variabili, input, int()",
+  "risultato": "Un programma che chiede nome e bioma preferito e stampa una scheda del giocatore.",
+  "passi": [
+    {
+      "nome": "Prevedi",
+      "testo": "Se scrivo «Steve» e «deserto», cosa stampa esattamente? Scrivilo su un foglio prima di premere Esegui, poi confronta."
+    },
+    {
+      "nome": "Modifica",
+      "testo": "Chiedi anche quanti blocchi di terra hai e calcola quanti stack da 64 sono e quanti blocchi avanzano. Ti serviranno // e %. Con 200 blocchi: 3 stack e 8 avanzano. Prima indovina cosa fanno, poi controlla."
+    },
+    {
+      "nome": "Ripara",
+      "testo": "Premi «Carica versione da riparare». Il programma si rompe, e dopo averlo sistemato si rompe di nuovo in un altro modo. Leggi il riquadro «Cosa è successo» e correggi un errore alla volta."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Con parole tue: perché input() restituisce un testo anche se scrivo 200? Cosa serve per trasformarlo in numero?"
+    }
+  ]
+}

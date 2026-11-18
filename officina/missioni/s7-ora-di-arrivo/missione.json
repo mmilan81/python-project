@@ -1,0 +1,148 @@
+{
+  "tipo": "sfida",
+  "gruppo": "Sfide con numeri e vita di tutti i giorni",
+  "titolo": "A che ora arrivo?",
+  "concetti": "funzioni, return, //, %, liste",
+  "enunciato": "Esci di casa e vuoi sapere a che ora arrivi: a scuola, dal nonno, al cinema. Conosci l’ora di partenza (ore e minuti, con l’orologio da 0 a 23) e quanti minuti dura il viaggio. Esempio: partendo alle 14:50 con un viaggio di 25 minuti arrivi alle 15:15.",
+  "requisiti": [
+    "Scrivi una funzione ora_di_arrivo(ore, minuti, durata) che restituisce (con return) una lista di due numeri: [ore, minuti] dell’arrivo.",
+    "Esempio: ora_di_arrivo(14, 50, 25) restituisce [15, 15].",
+    "Se si supera la mezzanotte, si ricomincia da 0: partendo alle 23:40 con 30 minuti si arriva alle 00:10, cioè [0, 10].",
+    "Deve funzionare anche con viaggi molto lunghi, e con durata 0.",
+    "La funzione non stampa: restituisce soltanto il risultato.",
+    "Extra: scrivi anche formatta_ora(ore, minuti), che restituisce un testo con sempre due cifre per le ore e per i minuti, per esempio \"07:05\" o \"14:30\"."
+  ],
+  "passi": [
+    {
+      "nome": "Pianifica",
+      "testo": "Prima di scrivere codice, riempi il PIANO in cima al file con parole tue. Risolvi a mano l’esempio dell’enunciato e scrivi i passi che hai fatto."
+    },
+    {
+      "nome": "Scrivi",
+      "testo": "Prova con l’esempio: quanti minuti sono passati dalla mezzanotte alle 14:50? E dopo altri 25? Come si torna a ore e minuti? Cosa cambia quando si supera la mezzanotte? Puoi provare le tue funzioni in fondo al file con print(...), ma non usare input() fuori dalle funzioni."
+    },
+    {
+      "nome": "Controlla",
+      "testo": "Premi «Controlla»: il computer prova il tuo codice con casi diversi, anche nascosti. Se una prova non passa, leggi cosa si aspettava e cosa hai ottenuto."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Spiega a voce a un adulto come hai ragionato, partendo dal piano. Quale caso particolare non avevi previsto? Cosa cambieresti ora?"
+    }
+  ],
+  "prove": [
+    {
+      "f": "ora_di_arrivo",
+      "args": [
+        14,
+        50,
+        25
+      ],
+      "atteso": [
+        15,
+        15
+      ]
+    },
+    {
+      "f": "ora_di_arrivo",
+      "args": [
+        23,
+        40,
+        30
+      ],
+      "atteso": [
+        0,
+        10
+      ]
+    },
+    {
+      "f": "ora_di_arrivo",
+      "args": [
+        8,
+        0,
+        0
+      ],
+      "atteso": [
+        8,
+        0
+      ]
+    },
+    {
+      "f": "ora_di_arrivo",
+      "args": [
+        10,
+        15,
+        1500
+      ],
+      "atteso": [
+        11,
+        15
+      ],
+      "nascosta": true
+    },
+    {
+      "f": "ora_di_arrivo",
+      "args": [
+        23,
+        59,
+        1
+      ],
+      "atteso": [
+        0,
+        0
+      ],
+      "nascosta": true
+    },
+    {
+      "f": "ora_di_arrivo",
+      "args": [
+        0,
+        0,
+        60
+      ],
+      "atteso": [
+        1,
+        0
+      ],
+      "nascosta": true
+    },
+    {
+      "f": "formatta_ora",
+      "args": [
+        7,
+        5
+      ],
+      "atteso": "07:05",
+      "extra": true
+    },
+    {
+      "f": "formatta_ora",
+      "args": [
+        14,
+        30
+      ],
+      "atteso": "14:30",
+      "extra": true
+    },
+    {
+      "f": "formatta_ora",
+      "args": [
+        0,
+        0
+      ],
+      "atteso": "00:00",
+      "extra": true,
+      "nascosta": true
+    },
+    {
+      "f": "formatta_ora",
+      "args": [
+        9,
+        0
+      ],
+      "atteso": "09:00",
+      "extra": true,
+      "nascosta": true
+    }
+  ]
+}

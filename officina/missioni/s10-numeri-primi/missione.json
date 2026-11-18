@@ -1,0 +1,145 @@
+{
+  "tipo": "sfida",
+  "gruppo": "Sfide con numeri e vita di tutti i giorni",
+  "titolo": "La caccia ai numeri primi",
+  "concetti": "funzioni, for, %, return True / False, liste",
+  "enunciato": "Un numero primo si divide solo per 1 e per se stesso: 7 è primo, 9 no perché si divide anche per 3. Il numero 1 non è primo, e nemmeno 0 e i numeri negativi.",
+  "requisiti": [
+    "Scrivi una funzione e_primo(n) che restituisce True se n è primo, altrimenti False.",
+    "Esempi: e_primo(7) è True, e_primo(9) è False, e_primo(2) è True, e_primo(1) è False.",
+    "La funzione non stampa: restituisce soltanto True o False.",
+    "Extra: scrivi anche primi_fino_a(n), che restituisce la lista dei numeri primi da 2 fino a n compreso. Esempio: primi_fino_a(10) restituisce [2, 3, 5, 7]. Se n è minore di 2 restituisce una lista vuota."
+  ],
+  "passi": [
+    {
+      "nome": "Pianifica",
+      "testo": "Prima di scrivere codice, riempi il PIANO in cima al file con parole tue. Risolvi a mano l’esempio dell’enunciato e scrivi i passi che hai fatto."
+    },
+    {
+      "nome": "Scrivi",
+      "testo": "Come scopri che 9 non è primo? Quali numeri provi a usare come divisore? Cosa fai appena ne trovi uno che divide? E cosa succede con 0, 1 e i numeri negativi? Per l’extra puoi riutilizzare la funzione che hai già scritto."
+    },
+    {
+      "nome": "Controlla",
+      "testo": "Premi «Controlla»: il computer prova il tuo codice con casi diversi, anche nascosti. Se una prova non passa, leggi cosa si aspettava e cosa hai ottenuto."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Spiega a voce a un adulto come hai ragionato, partendo dal piano. Quale caso particolare non avevi previsto? Cosa cambieresti ora?"
+    }
+  ],
+  "prove": [
+    {
+      "f": "e_primo",
+      "args": [
+        7
+      ],
+      "atteso": true
+    },
+    {
+      "f": "e_primo",
+      "args": [
+        9
+      ],
+      "atteso": false
+    },
+    {
+      "f": "e_primo",
+      "args": [
+        2
+      ],
+      "atteso": true
+    },
+    {
+      "f": "e_primo",
+      "args": [
+        1
+      ],
+      "atteso": false
+    },
+    {
+      "f": "e_primo",
+      "args": [
+        0
+      ],
+      "atteso": false,
+      "nascosta": true
+    },
+    {
+      "f": "e_primo",
+      "args": [
+        -5
+      ],
+      "atteso": false,
+      "nascosta": true
+    },
+    {
+      "f": "e_primo",
+      "args": [
+        97
+      ],
+      "atteso": true,
+      "nascosta": true
+    },
+    {
+      "f": "e_primo",
+      "args": [
+        91
+      ],
+      "atteso": false,
+      "nascosta": true
+    },
+    {
+      "f": "primi_fino_a",
+      "args": [
+        10
+      ],
+      "atteso": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "extra": true
+    },
+    {
+      "f": "primi_fino_a",
+      "args": [
+        1
+      ],
+      "atteso": [],
+      "extra": true
+    },
+    {
+      "f": "primi_fino_a",
+      "args": [
+        30
+      ],
+      "atteso": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "extra": true,
+      "nascosta": true
+    },
+    {
+      "f": "primi_fino_a",
+      "args": [
+        2
+      ],
+      "atteso": [
+        2
+      ],
+      "extra": true,
+      "nascosta": true
+    }
+  ]
+}

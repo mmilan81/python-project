@@ -1,0 +1,24 @@
+{
+  "titolo": "Il blocco nota intelligente",
+  "concetti": "catena di elif con i testi, variabili assegnate in rami diversi, if dentro else",
+  "risultato": "Scrivi il nome di una nota e un’ottava: il programma calcola la frequenza e la suona.",
+  "nota": "Funziona solo su Windows, perché usa il modulo winsound.",
+  "passi": [
+    {
+      "nome": "Prevedi",
+      "testo": "Se scrivo «la» e «bassa», quale frequenza verrà stampata? E se scrivo «sol#»?"
+    },
+    {
+      "nome": "Modifica",
+      "testo": "Fai in modo che funzionino anche «Do», «RE» e «Sol» scritti con le maiuscole: cerca nella documentazione di Python come si trasforma un testo in minuscolo. Sfida: chiedi due note e suonale una dopo l’altra."
+    },
+    {
+      "nome": "Ripara",
+      "testo": "Premi «Carica versione da riparare». Prova tutte le note e tutte le ottave, una combinazione alla volta: il programma si ferma in due modi diversi. Il secondo messaggio d’errore è in inglese, leggilo con calma."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "A cosa serve l’else alla fine di una catena di elif? Cosa succede se lo togli e scrivi una nota che non esiste?"
+    }
+  ]
+}

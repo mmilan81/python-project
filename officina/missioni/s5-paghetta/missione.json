@@ -1,0 +1,145 @@
+{
+  "tipo": "sfida",
+  "gruppo": "Sfide con numeri e vita di tutti i giorni",
+  "titolo": "Quando compro il gioco?",
+  "concetti": "input, int(), //, %, if, ragionare sui casi",
+  "enunciato": "Vuoi comprare un gioco e lo stai pagando con la paghetta. Scrivi un programma che calcola dopo quante settimane potrai comprarlo. Esempio: il gioco costa 40 euro, ne hai già 12 e ricevi 10 euro a settimana. Dopo 2 settimane hai 32 euro, non bastano; dopo 3 ne hai 42, bastano: servono 3 settimane.",
+  "requisiti": [
+    "Il programma chiede: quanto costa il gioco, quanti euro hai già, quanto ricevi ogni settimana (tre numeri interi).",
+    "Stampa una riga con le settimane necessarie, per esempio: Servono 3 settimane",
+    "Se hai già abbastanza soldi, stampa esattamente: Puoi già comprarlo",
+    "Extra: se la paghetta è 0 e ti manca ancora qualcosa, stampa esattamente: Con questa paghetta non ci riuscirai mai"
+  ],
+  "passi": [
+    {
+      "nome": "Pianifica",
+      "testo": "Prima di scrivere codice, riempi il PIANO in cima al file con parole tue. Risolvi a mano l’esempio dell’enunciato e scrivi i passi che hai fatto."
+    },
+    {
+      "nome": "Scrivi",
+      "testo": "Ci sono più strade: puoi simulare le settimane una alla volta, oppure calcolare tutto con una divisione. Qualunque strada scegli, chiediti cosa succede quando la divisione non è esatta (nell’esempio, 28 euro da mettere insieme con 10 a settimana)."
+    },
+    {
+      "nome": "Controlla",
+      "testo": "Premi «Controlla»: il computer prova il tuo codice con casi diversi, anche nascosti. Se una prova non passa, leggi cosa si aspettava e cosa hai ottenuto."
+    },
+    {
+      "nome": "Spiega",
+      "testo": "Spiega a voce a un adulto come hai ragionato, partendo dal piano. Quale caso particolare non avevi previsto? Cosa cambieresti ora?"
+    }
+  ],
+  "prove": [
+    {
+      "titolo": "gioco da 60 euro, hai 15, paghetta 10",
+      "input": [
+        60,
+        15,
+        10
+      ],
+      "righe": [
+        [
+          "settimane",
+          "5"
+        ]
+      ],
+      "assenti": [
+        "puoi gia comprarlo"
+      ]
+    },
+    {
+      "titolo": "gioco da 30 euro, hai 0, paghetta 10",
+      "input": [
+        30,
+        0,
+        10
+      ],
+      "righe": [
+        [
+          "settimane",
+          "3"
+        ]
+      ]
+    },
+    {
+      "titolo": "gioco da 50 euro, hai 50, paghetta 8",
+      "input": [
+        50,
+        50,
+        8
+      ],
+      "righe": [
+        [
+          "puoi gia comprarlo"
+        ]
+      ]
+    },
+    {
+      "input": [
+        59,
+        0,
+        20
+      ],
+      "righe": [
+        [
+          "settimane",
+          "3"
+        ]
+      ],
+      "nascosta": true
+    },
+    {
+      "input": [
+        100,
+        30,
+        35
+      ],
+      "righe": [
+        [
+          "settimane",
+          "2"
+        ]
+      ],
+      "nascosta": true
+    },
+    {
+      "input": [
+        20,
+        25,
+        5
+      ],
+      "righe": [
+        [
+          "puoi gia comprarlo"
+        ]
+      ],
+      "nascosta": true
+    },
+    {
+      "input": [
+        10,
+        10,
+        0
+      ],
+      "righe": [
+        [
+          "puoi gia comprarlo"
+        ]
+      ],
+      "nascosta": true
+    },
+    {
+      "titolo": "gioco da 40 euro, hai 10, paghetta 0",
+      "input": [
+        40,
+        10,
+        0
+      ],
+      "righe": [
+        [
+          "con questa paghetta non ci riuscirai mai"
+        ]
+      ],
+      "extra": true
+    }
+  ]
+}
